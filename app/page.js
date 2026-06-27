@@ -9,6 +9,7 @@ import AboutUniversity from "./components/AboutUniversity";
 import OnlinePrograms from "./components/OnlinePrograms";
 import TheDifference from "./components/TheDifference";
 import ProgramsShowcase from "./components/ProgramsShowcase";
+import AiCurriculum from "./components/AiCurriculum";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <OnlinePrograms />
       <TheDifference />
       <ProgramsShowcase />
+      <AiCurriculum />
     </main>
   );
 }

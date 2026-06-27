@@ -74,3 +74,13 @@ after eight section (OnlinePrograms.js) now we moving forward to ninth section  
 
 
 after ninth section (TheDifference.js) now we moving forward to tenth section  "public\reference-design\10-tenth-section.png" first look at this carefully and analysis perfectly then use assets and everything from this folder "public\tenth-section" make it similar perfectly like "public\reference-design\10-tenth-section.png" responsive for all device perfectly
+
+
+
+
+
+
+"C:\mern\atlas-online\public\reference-design\10-tenth-section.png"
+
+
+after tenth section (ProgramsShowcase.js) now we moving forward to eleventh section  "public\reference-design\10-tenth-section.png" first look at this carefully and analysis perfectly  make it similar perfectly like "public\reference-design\10-tenth-section.png" responsive for all device perfectly

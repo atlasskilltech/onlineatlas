@@ -16,6 +16,7 @@
   --color-atlas-lime: #dbe269;
 
   --animate-marquee: marquee 28s linear infinite;
+  --animate-fade-in: fadeIn 0.32s ease both;
 }
 
 @keyframes marquee {
@@ -24,6 +25,17 @@
   }
   to {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
