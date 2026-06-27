@@ -58,3 +58,10 @@ after sixth section (StudentSuccess.js) now we moving forward to seventh section
 
 
 after seventh section (AboutUniversity.js) now we moving forward to eight section  "public\reference-design\8-eight-section.png" first look at this carefully and analysis perfectly then use assets and everything from this folder "public\eight-section" make it similar perfectly like "public\reference-design\8-eight-section.png" responsive for all device perfectly
+
+
+"C:\mern\atlas-online\public\ninth-section" assets
+"C:\mern\atlas-online\public\reference-design\9-ninth-section.png" refers
+
+
+after eight section (OnlinePrograms.js) now we moving forward to ninth section  "public\reference-design\9-ninth-section.png" first look at this carefully and analysis perfectly then use assets and everything from this folder "public\ninth-section" make it similar perfectly like "public\reference-design\9-ninth-section.png" responsive for all device perfectly

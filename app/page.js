@@ -7,6 +7,7 @@ import AdmissionsCTA from "./components/AdmissionsCTA";
 import StudentSuccess from "./components/StudentSuccess";
 import AboutUniversity from "./components/AboutUniversity";
 import OnlinePrograms from "./components/OnlinePrograms";
+import TheDifference from "./components/TheDifference";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <StudentSuccess />
       <AboutUniversity />
       <OnlinePrograms />
+      <TheDifference />
     </main>
   );
 }
