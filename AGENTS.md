@@ -10,5 +10,7 @@ after header now we move forward to first section herobanner "public\reference-d
 
 
 
-after herobanner now we moving forward to second section  "public\reference-design\seond-section.png" first look at this carefully and analysis perfectly then use asset for this from here 
-"public\second-section\brand-logos" make it similar perfectly like "public\reference-design\hero-banner.png" responsive for all device perfectly
+after herobanner now we moving forward to second section  "public\reference-design\seond-section.png" first look at this carefully and analysis perfectly then use brand logos for this from here "public\second-section\brand-logos" make it similar perfectly like "public\reference-design\seond-section.png" responsive for all device perfectly
+
+after second section now we moving forward to third section  "public\reference-design\third-section.png" first look at this carefully and analysis perfectly then use icon and video for this from here "public\third-section" make it similar perfectly like "public\reference-design\third-section.png" responsive for all device perfectly
+
