@@ -42,7 +42,7 @@ function MarqueeRow({ src, width, height, reverse }) {
             height={height}
             alt={i === 0 ? "ATLAS industry partners" : ""}
             aria-hidden={i !== 0}
-            className="mr-8 h-8 w-auto max-w-none shrink-0 mix-blend-lighten sm:mr-10 sm:h-10"
+            className="mr-10 h-10 w-auto max-w-none shrink-0 mix-blend-lighten sm:mr-12 sm:h-12 lg:mr-14 lg:h-14"
           />
         ))}
       </div>

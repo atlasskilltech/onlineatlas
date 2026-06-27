@@ -37,3 +37,6 @@ after fourth section (IndustryPartners.js & Leadership.js) now we moving forward
 "C:\mern\atlas-online\public\reference-design\footer.png" reference
 
 after fivth section (IndustryPartners.js & Leadership.js) now we moving forward to footer section  "public\reference-design\footer.png" first look at this carefully and analysis perfectly then use logo assets etc for this from here "public\logo\atlas-online-logo-footer.svg" make it similar perfectly like "public\reference-design\footer.png" responsive for all device perfectly
+
+
+after fivth section (IndustryPartners.js & Leadership.js) now we moving forward to sixth section  "public\reference-design\6-sixth-section.png" first look at this carefully and analysis perfectly then use person brand logo icon assets etc for this from here ""C:\mern\atlas-online\public\sixth-section"" make it similar perfectly like "public\reference-design\6-sixth-section.png" responsive for all device perfectly
