@@ -118,7 +118,6 @@ after eleventh section (AiCurriculum.js) now we moving forward to tenth section 
 "C:\mern\atlas-online\public\reference-design\13-thirteen-section.png" reference
 
 
-after twelth section (AiCurriculum.js) now we moving forward to thriteen section  "public\reference-design\12-twelvth-section.png" first look at this carefully and analysis perfectly then use assets and everything from this folder "public\twelth-section" make it similar perfectly like "public\reference-design\12-twelvth-section.png" also this is use this AdmissionsCTA.js for layout means usesable component here responsive for all device perfectly
+after twelth section last (AdmissionsCTA.js) now we moving forward to thriteen section  "public\reference-design\13-thirteen-section.png" first look at this carefully and analysis perfectly then use assets and everything from this folder "public\thirteen-section" make it similar perfectly like "public\reference-design\13-thirteen-section.png" responsive for all device perfectly
 
 
-home

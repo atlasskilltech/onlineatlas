@@ -10,6 +10,7 @@ import OnlinePrograms from "./components/OnlinePrograms";
 import TheDifference from "./components/TheDifference";
 import ProgramsShowcase from "./components/ProgramsShowcase";
 import AiCurriculum from "./components/AiCurriculum";
+import IndustryCurriculum from "./components/IndustryCurriculum";
 
 export default function Home() {
   return (
@@ -45,6 +46,7 @@ export default function Home() {
         checkSrc="/twelth-section/icon/right.png"
         starSrc="/twelth-section/shape/vector.png"
       />
+      <IndustryCurriculum />
     </main>
   );
 }

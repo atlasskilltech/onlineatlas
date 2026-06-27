@@ -47,14 +47,16 @@ function AnnouncementBar() {
 
   return (
     <div className="bg-atlas-lime">
-      {/* Static, centered row on large screens — matches the reference exactly */}
-      <div className="mx-auto hidden max-w-7xl items-center justify-center px-4 lg:flex">
-        {track}
-      </div>
-
-      {/* Auto-scrolling marquee on smaller screens so nothing gets clipped */}
-      <div className="group flex overflow-hidden lg:hidden">
-        <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] motion-reduce:animate-none">
+      {/* Continuous right-to-left ticker at every breakpoint. `overflow-hidden`
+          guarantees the (intentionally wider-than-viewport) content can never
+          add horizontal page overflow. Four identical copies animated by -50%
+          keep the loop seamless — gap-free, jump-free — even on ultra-wide
+          screens where a single copy is narrower than the viewport. The fixed
+          duration keeps the scroll speed identical across all screen sizes. */}
+      <div className="group flex overflow-hidden">
+        <div className="flex w-max animate-marquee whitespace-nowrap [animation-duration:56s] group-hover:[animation-play-state:paused] motion-reduce:animate-none">
+          {track}
+          {track}
           {track}
           {track}
         </div>
