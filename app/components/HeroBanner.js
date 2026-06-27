@@ -187,22 +187,22 @@ export default function HeroBanner() {
               </span>
             </h1>
 
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 underline decoration-[#2f80ff] decoration-2 underline-offset-4 sm:text-lg">
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85  sm:text-lg">
               In the AI era, the leaders who will define the next decade are
               those who know how to think, decide, and{" "}
-              <strong className="font-bold text-white">build with AI</strong>.{" "}
-              <strong className="font-bold text-white">
+              <strong className="font-bold text-[#DDE567]">build with AI</strong>.{" "}
+              <strong className="font-bold text-[#DDE567]">
                 ATLAS Online School
               </strong>{" "}
               of Management&apos;s AI-native programs are built for the world
               you&apos;re already working in, combining{" "}
-              <strong className="font-bold text-white">
+              <strong className="font-bold text-[#DDE567]">
                 world class faculty
               </strong>
               ,{" "}
-              <strong className="font-bold text-white">industry mentors</strong>
+              <strong className="font-bold text-[#DDE567]">industry mentors</strong>
               , and{" "}
-              <strong className="font-bold text-white">
+              <strong className="font-bold text-[#DDE567]">
                 real-world AI application
               </strong>{" "}
               to accelerate your career.

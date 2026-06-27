@@ -40,3 +40,11 @@ after fivth section (IndustryPartners.js & Leadership.js) now we moving forward 
 
 
 after fivth section (IndustryPartners.js & Leadership.js) now we moving forward to sixth section  "public\reference-design\6-sixth-section.png" first look at this carefully and analysis perfectly then use person brand logo icon assets etc for this from here ""C:\mern\atlas-online\public\sixth-section"" make it similar perfectly like "public\reference-design\6-sixth-section.png" responsive for all device perfectly
+
+
+
+"C:\mern\atlas-online\public\reference-design\7-seventh-section.png" ref
+"C:\mern\atlas-online\public\seventh-section" assets
+
+
+after sixth section (StudentSuccess.js) now we moving forward to seventh section  "public\reference-design\7-seventh-section.png" first look at this carefully and analysis perfectly then use assets and everything from this folder "public\seventh-section" make it similar perfectly like "public\reference-design\7-seventh-section.png" responsive for all device perfectly

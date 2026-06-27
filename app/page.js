@@ -5,6 +5,7 @@ import IndustryPartners from "./components/IndustryPartners";
 import Leadership from "./components/Leadership";
 import AdmissionsCTA from "./components/AdmissionsCTA";
 import StudentSuccess from "./components/StudentSuccess";
+import AboutUniversity from "./components/AboutUniversity";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Leadership />
       <AdmissionsCTA />
       <StudentSuccess />
+      <AboutUniversity />
     </main>
   );
 }
