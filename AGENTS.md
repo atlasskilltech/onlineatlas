@@ -29,3 +29,11 @@ after third section now we moving forward to fourth section  "public\reference-d
 
 
 after fourth section (IndustryPartners.js & Leadership.js) now we moving forward to fiveth section  "public\reference-design\fiveth-section.png" first look at this carefully and analysis perfectly then use brand logos, profile image assets etc for this from here "public\fiveth-section" make it similar perfectly like "public\reference-design\fiveth-section.png" responsive for all device perfectly
+
+
+
+"C:\mern\atlas-online\public\logo\atlas-online-logo-footer.svg" assets
+
+"C:\mern\atlas-online\public\reference-design\footer.png" reference
+
+after fivth section (IndustryPartners.js & Leadership.js) now we moving forward to footer section  "public\reference-design\footer.png" first look at this carefully and analysis perfectly then use logo assets etc for this from here "public\logo\atlas-online-logo-footer.svg" make it similar perfectly like "public\reference-design\footer.png" responsive for all device perfectly
