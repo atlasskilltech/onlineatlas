@@ -6,6 +6,7 @@ import Leadership from "./components/Leadership";
 import AdmissionsCTA from "./components/AdmissionsCTA";
 import StudentSuccess from "./components/StudentSuccess";
 import AboutUniversity from "./components/AboutUniversity";
+import OnlinePrograms from "./components/OnlinePrograms";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <AdmissionsCTA />
       <StudentSuccess />
       <AboutUniversity />
+      <OnlinePrograms />
     </main>
   );
 }

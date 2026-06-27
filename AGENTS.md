@@ -48,3 +48,13 @@ after fivth section (IndustryPartners.js & Leadership.js) now we moving forward 
 
 
 after sixth section (StudentSuccess.js) now we moving forward to seventh section  "public\reference-design\7-seventh-section.png" first look at this carefully and analysis perfectly then use assets and everything from this folder "public\seventh-section" make it similar perfectly like "public\reference-design\7-seventh-section.png" responsive for all device perfectly
+
+
+
+
+"C:\mern\atlas-online\public\eight-section" assets
+
+"C:\mern\atlas-online\public\reference-design\8-eight-section.png" refers
+
+
+after seventh section (AboutUniversity.js) now we moving forward to eight section  "public\reference-design\8-eight-section.png" first look at this carefully and analysis perfectly then use assets and everything from this folder "public\eight-section" make it similar perfectly like "public\reference-design\8-eight-section.png" responsive for all device perfectly
