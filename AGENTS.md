@@ -65,3 +65,12 @@ after seventh section (AboutUniversity.js) now we moving forward to eight sectio
 
 
 after eight section (OnlinePrograms.js) now we moving forward to ninth section  "public\reference-design\9-ninth-section.png" first look at this carefully and analysis perfectly then use assets and everything from this folder "public\ninth-section" make it similar perfectly like "public\reference-design\9-ninth-section.png" responsive for all device perfectly
+
+
+
+"C:\mern\atlas-online\public\reference-design\10-tenth-section.png" reference
+
+"C:\mern\atlas-online\public\tenth-section" assets
+
+
+after ninth section (TheDifference.js) now we moving forward to tenth section  "public\reference-design\10-tenth-section.png" first look at this carefully and analysis perfectly then use assets and everything from this folder "public\tenth-section" make it similar perfectly like "public\reference-design\10-tenth-section.png" responsive for all device perfectly

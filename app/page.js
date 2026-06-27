@@ -8,6 +8,7 @@ import StudentSuccess from "./components/StudentSuccess";
 import AboutUniversity from "./components/AboutUniversity";
 import OnlinePrograms from "./components/OnlinePrograms";
 import TheDifference from "./components/TheDifference";
+import ProgramsShowcase from "./components/ProgramsShowcase";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <AboutUniversity />
       <OnlinePrograms />
       <TheDifference />
+      <ProgramsShowcase />
     </main>
   );
 }
