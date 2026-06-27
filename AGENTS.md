@@ -97,4 +97,27 @@ after tenth section (ProgramsShowcase.js) now we moving forward to eleventh sect
 
 
 
+after eleventh section (AiCurriculum.js) now we moving forward to tenth section  "public\reference-design\12-twelvth-section.png" first look at this carefully and analysis perfectly then use assets and everything from this folder "public\twelth-section" make it similar perfectly like "public\reference-design\12-twelvth-section.png" also this is use this AdmissionsCTA.js for layout means usesable component here responsive for all device perfectly
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"C:\mern\atlas-online\public\thirteen-section"  assets
+
+"C:\mern\atlas-online\public\reference-design\13-thirteen-section.png" reference
+
+
+after twelth section (AiCurriculum.js) now we moving forward to thriteen section  "public\reference-design\12-twelvth-section.png" first look at this carefully and analysis perfectly then use assets and everything from this folder "public\twelth-section" make it similar perfectly like "public\reference-design\12-twelvth-section.png" also this is use this AdmissionsCTA.js for layout means usesable component here responsive for all device perfectly
+
 
