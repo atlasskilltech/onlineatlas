@@ -14,3 +14,11 @@ after herobanner now we moving forward to second section  "public\reference-desi
 
 after second section now we moving forward to third section  "public\reference-design\third-section.png" first look at this carefully and analysis perfectly then use icon and video for this from here "public\third-section" make it similar perfectly like "public\reference-design\third-section.png" responsive for all device perfectly
 
+
+
+
+there some changes in the (app/components/IndustryFocus.js) Match the reference design exactly public\reference-design\third-section.png. The video should float between the hero and the features section, with approximately 25% of the video extending into the white section. Increase the top padding of the white section so the feature cards are pushed down and never overlap with the video. Keep the floating card shadow and border radius intact.
+
+
+
+after third section now we moving forward to fourth section  "public\reference-design\third-section.png" first look at this carefully and analysis perfectly then use brand logos, profile image assets etc for this from here "public\fourth-section" make it similar perfectly like "public\reference-design\third-section.png" responsive for all device perfectly
