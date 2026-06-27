@@ -26,6 +26,25 @@ export default function Home() {
       <TheDifference />
       <ProgramsShowcase />
       <AiCurriculum />
+      <AdmissionsCTA
+        profile={{
+          image: {
+            src: "/twelth-section/person/vivek-pandit/1.png",
+            alt: "Vivek Pandit at the ATLAS Convocation",
+          },
+          name: "Vivek Pandit",
+          title: "Founder & CEO",
+          convocation: "@ ATLAS Convocation",
+          logo: {
+            src: "/fourth-section/leaders/vivek-pandit/logo.png",
+            width: 800,
+            height: 249,
+            alt: "McKinsey & Company",
+          },
+        }}
+        checkSrc="/twelth-section/icon/right.png"
+        starSrc="/twelth-section/shape/vector.png"
+      />
     </main>
   );
 }

@@ -84,3 +84,17 @@ after ninth section (TheDifference.js) now we moving forward to tenth section  "
 
 
 after tenth section (ProgramsShowcase.js) now we moving forward to eleventh section  "public\reference-design\10-tenth-section.png" first look at this carefully and analysis perfectly  make it similar perfectly like "public\reference-design\10-tenth-section.png" responsive for all device perfectly
+
+
+
+
+"C:\mern\atlas-online\public\reference-design\12-twelvth-section.png" ref
+
+"C:\mern\atlas-online\public\twelth-section" asset
+
+
+
+
+
+
+
