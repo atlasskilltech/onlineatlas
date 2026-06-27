@@ -22,3 +22,10 @@ there some changes in the (app/components/IndustryFocus.js) Match the reference 
 
 
 after third section now we moving forward to fourth section  "public\reference-design\third-section.png" first look at this carefully and analysis perfectly then use brand logos, profile image assets etc for this from here "public\fourth-section" make it similar perfectly like "public\reference-design\third-section.png" responsive for all device perfectly
+
+
+"C:\mern\atlas-online\" for assets
+"C:\mern\atlas-online\" for reference
+
+
+after fourth section (IndustryPartners.js & Leadership.js) now we moving forward to fiveth section  "public\reference-design\fiveth-section.png" first look at this carefully and analysis perfectly then use brand logos, profile image assets etc for this from here "public\fiveth-section" make it similar perfectly like "public\reference-design\fiveth-section.png" responsive for all device perfectly
