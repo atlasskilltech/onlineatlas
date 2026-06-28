@@ -211,3 +211,15 @@ now on programs start making second section design reference from this folder "p
 
 
 now on programs start making fourth section design reference from this folder "public\reference-design\programs\4.png" and take assets from this "public" folder and dont make new desing stick with the main page desing and also there is many chance to use usable component from main page so always try to use usable component with out any issue on tha main page okay only responsive for all device perfectly
+
+
+
+C:\mern\github\faizan\onlineatlas\public\ninetheen-section\brand-logo
+now on programs start making fourth section design reference from this folder "public\reference-design\programs\4.png" and take assets from this "public" folder and dont make new desing stick with the main page desing and also there is many chance to use usable component from main page so always try to use usable component with out any issue on tha main page okay only responsive for all device perfectly
+
+
+
+
+
+
+now on programs start making sixth section design reference from this folder "public\reference-design\programs\6.png" and take assets from this "public" folder and dont make new desing stick with the main page desing and also there is many chance to use usable component from main page so always try to use usable component with out any issue on tha main page okay only responsive for all device perfectly
