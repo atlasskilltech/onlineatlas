@@ -11,6 +11,7 @@ import TheDifference from "./components/TheDifference";
 import ProgramsShowcase from "./components/ProgramsShowcase";
 import AiCurriculum from "./components/AiCurriculum";
 import IndustryCurriculum from "./components/IndustryCurriculum";
+import HrTestimonials from "./components/HrTestimonials";
 
 export default function Home() {
   return (
@@ -47,6 +48,7 @@ export default function Home() {
         starSrc="/twelth-section/shape/vector.png"
       />
       <IndustryCurriculum />
+      <HrTestimonials />
     </main>
   );
 }

@@ -121,3 +121,13 @@ after eleventh section (AiCurriculum.js) now we moving forward to tenth section 
 after twelth section last (AdmissionsCTA.js) now we moving forward to thriteen section  "public\reference-design\13-thirteen-section.png" first look at this carefully and analysis perfectly then use assets and everything from this folder "public\thirteen-section" make it similar perfectly like "public\reference-design\13-thirteen-section.png" responsive for all device perfectly
 
 
+
+
+
+
+"C:\mern\atlas-online\public\fourtheen-section"  assets
+
+"C:\mern\atlas-online\public\reference-design\14-fourtheen-section.png" reference
+
+
+after thriteen section last (IndustryCurriculum.js) now we moving forward to fourtheen section  "public\reference-design\14-fourtheen-section.png" first look at this carefully and analysis perfectly then use assets and everything from this folder "public\fourtheen-section" make it similar perfectly like "public\reference-design\14-fourtheen-section.png" responsive for all device perfectly
