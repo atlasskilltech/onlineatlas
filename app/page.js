@@ -14,6 +14,7 @@ import IndustryCurriculum from "./components/IndustryCurriculum";
 import HrTestimonials from "./components/HrTestimonials";
 import IndustryEcosystem from "./components/IndustryEcosystem";
 import AtlasNews from "./components/AtlasNews";
+import Faq from "./components/Faq";
 
 export default function Home() {
   return (
@@ -53,6 +54,7 @@ export default function Home() {
       <HrTestimonials />
       <IndustryEcosystem />
       <AtlasNews />
+      <Faq />
     </main>
   );
 }
