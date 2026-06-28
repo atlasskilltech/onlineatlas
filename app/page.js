@@ -15,6 +15,7 @@ import HrTestimonials from "./components/HrTestimonials";
 import IndustryEcosystem from "./components/IndustryEcosystem";
 import AtlasNews from "./components/AtlasNews";
 import Faq from "./components/Faq";
+import FinalCta from "./components/FinalCta";
 
 export default function Home() {
   return (
@@ -55,6 +56,7 @@ export default function Home() {
       <IndustryEcosystem />
       <AtlasNews />
       <Faq />
+      <FinalCta />
     </main>
   );
 }

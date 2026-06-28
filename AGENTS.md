@@ -165,3 +165,16 @@ after fiftheen section last (IndustryEcosystem.js) now we moving forward to sixt
 
 
 after sixteen section last (AtlasNews.js) now we moving forward to seventheen section  "public\reference-design\17-seventheen-section.png" first look at this carefully and analysis perfectly then use assets and everything from this folder "public\seventheen-section" make it similar perfectly like "public\reference-design\17-seventheen-section.png" responsive for all device perfectly
+
+
+
+
+
+
+
+"C:\mern\atlas-online\public\eighteen-section"  assets
+
+"C:\mern\atlas-online\public\reference-design\18-eighteen-section.png" reference
+
+
+after seventheen section last (Faq.js) now we moving forward to eighteen section  "public\reference-design\18-eighteen-section.png" first look at this carefully and analysis perfectly then use assets and everything from this folder "public\eighteen-section" make it similar perfectly like "public\reference-design\18-eighteen-section.png" responsive for all device perfectly
