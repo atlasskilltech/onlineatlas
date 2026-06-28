@@ -2,7 +2,7 @@
 // content, so metadata is never copied between pages while boilerplate (Open
 // Graph, Twitter, canonical, custom browser tags) stays DRY and consistent.
 
-export const SITE_URL = "https://atlasuniversity.edu.in";
+export const SITE_URL = "https://onlineatlas.vercel.app";
 export const BRAND = "ATLAS SkillTech University";
 export const SITE_NAME = "ATLAS Online — ATLAS SkillTech University";
 export const THEME_COLOR = "#16285c";
