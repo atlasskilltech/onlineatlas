@@ -243,3 +243,24 @@ now on programs start making sixth section design reference from this folder "pu
 
 
 now on programs start making seventh section design reference from this folder "public\reference-design\programs\7.png" and take assets from this "public" folder and dont make new desing stick with the main page desing and also there is many chance to use usable component from main page so always try to use usable component with out any issue on tha main page okay only responsive for all device perfectly
+
+
+\
+
+
+
+now on programs start making eigth section design reference from this folder "public\reference-design\programs\8.png" and take assets from this "public" folder and dont make new desing stick with the main page desing and also there is many chance to use usable component from main page so always try to use usable component with out any issue on tha main page okay only responsive for all device perfectly
+
+
+
+
+
+
+
+
+
+
+
+
+
+now on programs start making ninth section design reference from this folder "public\reference-design\programs\9.png" and take assets from this "public" folder and dont make new desing stick with the main page desing and also there is many chance to use usable component from main page so always try to use usable component with out any issue on tha main page okay only responsive for all device perfectly

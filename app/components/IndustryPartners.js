@@ -1,54 +1,5 @@
-import Image from "next/image";
-
-// Strips trimmed flush to the first/last logo (no leading/trailing margin), so
-// the only gap is the `mr` we add between copies — kept equal to the strip's own
-// inter-logo spacing (≈ the row height) so every gap stays consistent.
-const ROWS = [
-  {
-    src: "/fourth-section/brand-logos/first-row-trim.png",
-    width: 2481,
-    height: 120,
-  },
-  {
-    src: "/fourth-section/brand-logos/second-row-trim.png",
-    width: 2241,
-    height: 120,
-  },
-];
-
-function MarqueeRow({ src, width, height, reverse }) {
-  return (
-    <div className="flex overflow-hidden">
-      {/* The transform-based marquee forms its own stacking context, so the navy
-          bg lives here on the track — the backdrop `mix-blend-lighten` blends the
-          logos' black background against (turning it invisible).
-
-          Seamless loop: the track holds 4 identical copies and animates by -50%
-          (= 2 copies). Because 2 copies are always wider than the container, the
-          viewport is never left with blank space; and since copies 3–4 are
-          identical to 1–2, the reset at -50% is invisible. The -50% now spans
-          twice the distance of a single copy, so the duration is doubled (90s)
-          to keep the on-screen scroll speed unchanged. */}
-      <div
-        className={`flex w-max items-center bg-[#081f3d] animate-marquee [animation-duration:90s] motion-reduce:animate-none ${
-          reverse ? "[animation-direction:reverse]" : ""
-        }`}
-      >
-        {[0, 1, 2, 3].map((i) => (
-          <Image
-            key={i}
-            src={src}
-            width={width}
-            height={height}
-            alt={i === 0 ? "ATLAS industry partners" : ""}
-            aria-hidden={i !== 0}
-            className="mr-10 h-10 w-auto max-w-none shrink-0 mix-blend-lighten sm:mr-12 sm:h-12 lg:mr-14 lg:h-14"
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
+import BrandLogoMarquee from "./ui/BrandLogoMarquee";
+import { PARTNER_LOGO_ROWS } from "../data/partnerLogos";
 
 export default function IndustryPartners() {
   return (
@@ -58,10 +9,7 @@ export default function IndustryPartners() {
           Strong Industry Partnerships Driving Success
         </h2>
 
-        <div className="mt-10 flex flex-col gap-6 lg:mt-12 lg:gap-8">
-          <MarqueeRow {...ROWS[0]} />
-          <MarqueeRow {...ROWS[1]} reverse />
-        </div>
+        <BrandLogoMarquee rows={PARTNER_LOGO_ROWS} className="mt-10 lg:mt-12" />
 
         {/* Divider with a short lime accent at the left */}
         <div className="relative mt-12 w-full">
