@@ -1,12 +1,11 @@
 import Image from "next/image";
-import Link from "next/link";
 import FeatureChip from "./ui/FeatureChip";
 import FeatureCard from "./ui/FeatureCard";
-import { ArrowRight } from "./ui/icons";
+import { PrimaryButton } from "./ui/Button";
 
 const ICON = "/eight-section/icon";
 
-const BADGES = [
+const CHIPS = [
   {
     label: "AI Native Learning",
     icon: `${ICON}/two/ai-first-business-education.png`,
@@ -30,101 +29,108 @@ const BADGES = [
   },
 ];
 
+// 2 rows × 3 cols. Colour pattern matches the reference: middle column white,
+// outer columns alternate blue/green between the two rows.
 const FEATURES = [
   {
-    title: "Industry-Relevant Learning",
-    body: "Contemporary case studies, masterclasses, industry interactions, global perspectives and practical business applications that connect directly to career growth.",
-    icon: `${ICON}/two/industry-relevant-learning.png`,
-    w: 24,
-    h: 28,
-  },
-  {
-    title: "AI-First Business Education",
-    body: "AI is embedded throughout the learning journey as a tool for decision-making, productivity, innovation and strategic thinking across every discipline.",
+    title: "Master AI Tools Used By Industry",
+    body: "Gain hands-on experience with tools like Claude, Perplexity, Canva AI, Lovable, Bolt, v0, PostHog, and GA4 to solve real business challenges.",
     icon: `${ICON}/two/ai-first-business-education.png`,
     w: 23,
     h: 19,
+    variant: "blue",
   },
   {
-    title: "Build With Industry",
-    body: "Work on live briefs with real companies, collaborate with CXOs through exclusive masterclasses, and graduate with a portfolio of work.",
+    title: "Industry-Integrated Learning & Exposure",
+    body: "Engage in live projects, gain real-world experience, interact with industry professionals, and develop job-ready skills through experiential learning.",
+    icon: `${ICON}/two/industry-relevant-learning.png`,
+    w: 24,
+    h: 28,
+    variant: "white",
+  },
+  {
+    title: "Learn by Building Real Solutions",
+    body: "Create an AI-powered content channel, launch a working AI product, implement AI workflows, and pitch an AI venture by graduation.",
     icon: `${ICON}/two/build-with-industry.png`,
     w: 33,
     h: 33,
+    variant: "green",
   },
   {
-    title: "A New Way to Study Business Online",
-    body: "Forget pre-recorded lectures. These programs are built around doing — blending AI tools, peer learning & industry immersion into business programs designed for the world you're entering.",
+    title: "Global Academic Exposure & Collaboration",
+    body: "60+ university partnerships that expand your learning beyond borders and connect you to a world of opportunities.",
     icon: `${ICON}/two/a-new-way-to-study-business-online.png`,
     w: 23,
     h: 29,
+    variant: "green",
   },
   {
-    title: "Skills for Careers of the Future",
-    body: "Build critical capabilities such as strategic thinking, problem solving, communication, collaboration & decision-making that will define success in the decades ahead.",
+    title: "Career-First Learning Ecosystem",
+    body: "Comprehensive support with mentorship, employability training, interview preparation, and hiring opportunities.",
     icon: `${ICON}/two/skills-for-careers-of-the-future.png`,
     w: 33,
     h: 25,
+    variant: "white",
   },
   {
-    title: "ATLAS SkillTech University Alumni Status",
-    body: "Join a network of change-makers across business, design, law and technology. Your ATLAS alumni credential signals more than a degree, it signals that you're built for what's next.",
+    title: "Built by Industry & Academic Leaders",
+    body: "Designed with insights from experts shaping the future of business, education, and global innovation worldwide.",
     icon: `${ICON}/two/atlas-skillTechuniversity-alumni-status.png`,
     w: 27,
     h: 35,
+    variant: "blue",
   },
 ];
 
-export default function OnlinePrograms() {
+export default function WhyAtlasMba() {
   return (
     <section className="bg-[#081f3d] text-white">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-        {/* PART 1 — hero promotional card */}
+        {/* PART 1 — featured hero banner */}
         <div className="group overflow-hidden rounded-3xl border border-white/10 shadow-2xl shadow-black/40">
           <div className="grid lg:grid-cols-[3fr_5fr]">
-            {/* Image */}
+            {/* Left — featured image */}
             <div className="relative aspect-[418/344] w-full overflow-hidden lg:aspect-auto lg:h-full">
               <Image
                 src="/eight-section/poster/indu-maam-with-peyush-bansal.png"
                 alt="ATLAS leadership in conversation with Peyush Bansal"
                 fill
-                priority
                 sizes="(max-width: 1024px) 100vw, 480px"
                 className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               />
             </div>
 
-            {/* Content */}
+            {/* Right — gradient CTA content */}
             <div className="bg-gradient-to-br from-[#142c78] via-[#0a82a0] to-[#22787a] p-8 sm:p-10">
-              <p className="text-[13px] text-white/80 sm:text-sm">
-                Where Business Education Meets the Age of AI
-              </p>
+              <p className="text-[13px] text-white/80 sm:text-sm">Why Say Yes to</p>
               <h2 className="mt-2 text-2xl font-bold leading-tight tracking-tight sm:text-3xl lg:text-[2rem]">
-                Online Management Programs Built
-                <br className="hidden sm:block" /> for How Businesses Work Today
+                ATLAS Online MBA
               </h2>
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/75">
+                Designed for real-world relevance, the ATLAS Online MBA blends
+                AI-first learning with global business insight to help you lead
+                with confidence in a rapidly evolving world.
+              </p>
 
               <div className="mt-6 flex flex-wrap gap-3">
-                {BADGES.map((b) => (
-                  <FeatureChip key={b.label} {...b} />
+                {CHIPS.map((c) => (
+                  <FeatureChip key={c.label} {...c} />
                 ))}
               </div>
 
-              <Link
-                href="#apply"
-                className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-atlas-lime px-7 py-3 text-base font-bold text-[#0a2348] transition-colors duration-200 hover:bg-white sm:w-auto"
-              >
-                Apply Now
-                <ArrowRight />
-              </Link>
+              <div className="mt-7">
+                <PrimaryButton href="#apply" withArrow>
+                  Apply Now
+                </PrimaryButton>
+              </div>
             </div>
           </div>
         </div>
 
         {/* PART 2 — feature grid */}
         <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:mt-7 lg:grid-cols-3">
-          {FEATURES.map((f, i) => (
-            <FeatureCard key={f.title} {...f} variant={i % 3 === 1 ? "white" : "blue"} />
+          {FEATURES.map((f) => (
+            <FeatureCard key={f.title} {...f} />
           ))}
         </div>
       </div>

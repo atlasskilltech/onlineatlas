@@ -2,6 +2,7 @@
 // are composed here. Currently the hero — more sections will follow.
 import ProgramsHero from "../components/ProgramsHero";
 import ProgramOverview from "../components/ProgramOverview";
+import WhyAtlasMba from "../components/WhyAtlasMba";
 import { SITE_URL, BRAND, pageMetadata } from "../seo";
 
 export const metadata = {
@@ -79,6 +80,7 @@ export default function ProgramsPage() {
       />
       <ProgramsHero />
       <ProgramOverview />
+      <WhyAtlasMba />
     </main>
   );
 }
