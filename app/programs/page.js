@@ -4,6 +4,7 @@ import ProgramsHero from "../components/ProgramsHero";
 import ProgramOverview from "../components/ProgramOverview";
 import WhyAtlasMba from "../components/WhyAtlasMba";
 import LeadersPlaybook from "../components/LeadersPlaybook";
+import CaseChallenges from "../components/CaseChallenges";
 import { SITE_URL, BRAND, pageMetadata } from "../seo";
 
 export const metadata = {
@@ -83,6 +84,7 @@ export default function ProgramsPage() {
       <ProgramOverview />
       <WhyAtlasMba />
       <LeadersPlaybook />
+      <CaseChallenges />
     </main>
   );
 }

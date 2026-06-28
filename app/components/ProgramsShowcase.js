@@ -1,8 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Carousel from "./ui/Carousel";
 
 function ArrowRight() {
   return (
@@ -74,11 +74,6 @@ const PROGRAMS = [
     ],
   },
 ];
-
-// Temporary auto-looping carousel config
-const COPIES = 3; // duplicate the program set this many times for seamless looping
-const AUTOPLAY_MS = 4000;
-const TRANSITION = "transform 600ms cubic-bezier(0.22, 0.61, 0.36, 1)";
 
 function InfoBox({ label, value }) {
   return (
@@ -171,80 +166,6 @@ function ProgramCard({ program }) {
 }
 
 export default function ProgramsShowcase() {
-  const baseLen = PROGRAMS.length;
-  // Programmatically duplicate the slides (>= 3 copies) for seamless looping.
-  const slides = useMemo(
-    () => Array.from({ length: COPIES }).flatMap(() => PROGRAMS),
-    []
-  );
-
-  const [perView, setPerView] = useState(2);
-  const [index, setIndex] = useState(0);
-  const [snapTick, setSnapTick] = useState(0);
-
-  const trackRef = useRef(null);
-  const animateRef = useRef(true);
-  const pausedRef = useRef(false);
-
-  const activeDot = ((index % baseLen) + baseLen) % baseLen;
-
-  // Position the track at the current slide's measured offset (exact, gap-aware).
-  const applyTransform = useCallback(() => {
-    const track = trackRef.current;
-    if (!track || !track.children[index]) return;
-    const x = track.children[index].offsetLeft;
-    track.style.transition = animateRef.current ? TRANSITION : "none";
-    track.style.transform = `translate3d(${-x}px, 0, 0)`;
-    if (!animateRef.current) {
-      void track.offsetHeight; // commit the instant jump
-      animateRef.current = true;
-    }
-  }, [index]);
-
-  useLayoutEffect(() => {
-    applyTransform();
-  }, [applyTransform, perView, snapTick]);
-
-  // Responsive cards-per-view (matches the lg:w-1/2 breakpoint below).
-  useEffect(() => {
-    const compute = () => (window.innerWidth >= 1024 ? 2 : 1);
-    const onResize = () => {
-      setPerView((p) => {
-        const next = compute();
-        return next === p ? p : next;
-      });
-      animateRef.current = false;
-      setSnapTick((n) => n + 1);
-    };
-    onResize();
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
-
-  // Autoplay — advances one slide; pauses on hover.
-  useEffect(() => {
-    const id = setInterval(() => {
-      if (pausedRef.current) return;
-      animateRef.current = true;
-      setIndex((i) => i + 1);
-    }, AUTOPLAY_MS);
-    return () => clearInterval(id);
-  }, []);
-
-  // Seamless wrap: once a full set has scrolled past, snap back by one set with
-  // no animation. Copies are identical, so the reset is invisible.
-  const onTransitionEnd = useCallback(() => {
-    if (index >= baseLen) {
-      animateRef.current = false;
-      setIndex((i) => i - baseLen);
-    }
-  }, [index, baseLen]);
-
-  const goToDot = useCallback((i) => {
-    animateRef.current = true;
-    setIndex(i);
-  }, []);
-
   return (
     <section className="relative overflow-hidden bg-[#081f3d] text-white">
       {/* Decorative star — the asset is a low-alpha lime that composites over the
@@ -290,44 +211,21 @@ export default function ProgramsShowcase() {
           />
         </div>
 
-        {/* Program cards — auto-looping carousel (temporary) */}
-        <div
-          className="mt-10 overflow-hidden lg:mt-12"
-          onMouseEnter={() => (pausedRef.current = true)}
-          onMouseLeave={() => (pausedRef.current = false)}
-          aria-roledescription="carousel"
-        >
-          <div
-            ref={trackRef}
-            onTransitionEnd={onTransitionEnd}
-            className="flex items-stretch gap-8 will-change-transform"
-          >
-            {slides.map((program, i) => (
-              <div
-                key={`${program.degree}-${i}`}
-                className="w-full shrink-0 lg:w-[calc(50%-1rem)]"
-                aria-hidden={i < index || i >= index + perView}
-              >
-                <ProgramCard program={program} />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Pagination */}
-        <div className="mt-10 flex items-center justify-center gap-2">
-          {PROGRAMS.map((p, i) => (
-            <button
-              key={p.degree}
-              type="button"
-              aria-label={`Go to ${p.degree} program`}
-              aria-current={i === activeDot}
-              onClick={() => goToDot(i)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                i === activeDot ? "w-7 bg-atlas-lime" : "w-2 bg-white/25 hover:bg-white/40"
-              }`}
-            />
-          ))}
+        {/* Program cards — auto-looping carousel */}
+        <div className="mt-10 lg:mt-12">
+          <Carousel
+            items={PROGRAMS}
+            getKey={(p, i) => `${p.degree}-${i}`}
+            renderItem={(program) => <ProgramCard program={program} />}
+            itemClassName="w-full lg:w-[calc(50%-1rem)]"
+            gapClassName="gap-8"
+            defaultPerView={2}
+            getPerView={() =>
+              typeof window !== "undefined" && window.innerWidth >= 1024 ? 2 : 1
+            }
+            dotLabel={(i) => `Go to ${PROGRAMS[i].degree} program`}
+            ariaLabel="ATLAS programs"
+          />
         </div>
       </div>
     </section>
