@@ -209,7 +209,7 @@ export default function HrTestimonials() {
   };
 
   return (
-    <section className="bg-atlas-navy text-white" aria-labelledby="hr-testimonials-heading">
+    <section className="bg-[#182E5D] text-white" aria-labelledby="hr-testimonials-heading">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <h2
           id="hr-testimonials-heading"

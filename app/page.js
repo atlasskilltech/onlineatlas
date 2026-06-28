@@ -12,6 +12,7 @@ import ProgramsShowcase from "./components/ProgramsShowcase";
 import AiCurriculum from "./components/AiCurriculum";
 import IndustryCurriculum from "./components/IndustryCurriculum";
 import HrTestimonials from "./components/HrTestimonials";
+import IndustryEcosystem from "./components/IndustryEcosystem";
 
 export default function Home() {
   return (
@@ -49,6 +50,7 @@ export default function Home() {
       />
       <IndustryCurriculum />
       <HrTestimonials />
+      <IndustryEcosystem />
     </main>
   );
 }

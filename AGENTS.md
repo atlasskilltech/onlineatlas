@@ -131,3 +131,16 @@ after twelth section last (AdmissionsCTA.js) now we moving forward to thriteen s
 
 
 after thriteen section last (IndustryCurriculum.js) now we moving forward to fourtheen section  "public\reference-design\14-fourtheen-section.png" first look at this carefully and analysis perfectly then use assets and everything from this folder "public\fourtheen-section" make it similar perfectly like "public\reference-design\14-fourtheen-section.png" responsive for all device perfectly
+
+
+
+
+
+
+
+"C:\mern\atlas-online\public\fiftheen-section"  assets
+
+"C:\mern\atlas-online\public\reference-design\15-fiftheen-section.png" reference
+
+
+after fourtheen section last (HrTestimonials.js) now we moving forward to fiftheen section  "public\reference-design\15-fiftheen-section.png" first look at this carefully and analysis perfectly then use assets and everything from this folder "public\fiftheen-section" make it similar perfectly like "public\reference-design\15-fiftheen-section.png" responsive for all device perfectly
