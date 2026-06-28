@@ -183,4 +183,15 @@ after seventheen section last (Faq.js) now we moving forward to eighteen section
 
 
 
-C:\mern\github\faizan\onlineatlas\public\reference-design\programs\1.png
+public\reference-design\programs\1.png  reference design
+public assets
+
+
+
+now on programs start making first section design reference from this folder "public\reference-design\programs\1.png" and take assets from this
+"public" folder and dont make new desinf stick with the main page desing only responsive for all device perfectly
+
+
+
+
+now on programs start making first section design reference from this folder "public\reference-design\programs\2.png" and take assets from this "public" folder and dont make new desinf stick with the main page desing and also there is many chance to use usable component from main page so always try to use usable component with out any issue on tha main page okay only responsive for all device perfectly
