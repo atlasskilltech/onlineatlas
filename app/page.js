@@ -13,6 +13,7 @@ import AiCurriculum from "./components/AiCurriculum";
 import IndustryCurriculum from "./components/IndustryCurriculum";
 import HrTestimonials from "./components/HrTestimonials";
 import IndustryEcosystem from "./components/IndustryEcosystem";
+import AtlasNews from "./components/AtlasNews";
 
 export default function Home() {
   return (
@@ -51,6 +52,7 @@ export default function Home() {
       <IndustryCurriculum />
       <HrTestimonials />
       <IndustryEcosystem />
+      <AtlasNews />
     </main>
   );
 }

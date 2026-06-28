@@ -144,3 +144,18 @@ after thriteen section last (IndustryCurriculum.js) now we moving forward to fou
 
 
 after fourtheen section last (HrTestimonials.js) now we moving forward to fiftheen section  "public\reference-design\15-fiftheen-section.png" first look at this carefully and analysis perfectly then use assets and everything from this folder "public\fiftheen-section" make it similar perfectly like "public\reference-design\15-fiftheen-section.png" responsive for all device perfectly
+
+
+
+
+
+"C:\mern\atlas-online\public\sixteen-section"  assets
+
+"C:\mern\atlas-online\public\reference-design\16-sixteen-section.png" reference
+
+
+after fiftheen section last (IndustryEcosystem.js) now we moving forward to sixteen section  "public\reference-design\16-sixteen-section.png" first look at this carefully and analysis perfectly then use assets and everything from this folder "public\sixteen-section" make it similar perfectly like "public\reference-design\16-sixteen-section.png" responsive for all device perfectly
+
+
+
+
