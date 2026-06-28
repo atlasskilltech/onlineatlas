@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const ANNOUNCEMENTS = [
   "100% Online",
@@ -16,7 +17,7 @@ const NAV_LINKS = [
   { label: "Industry", href: "#industry" },
   { label: "Success Stories", href: "#success-stories" },
   { label: "Advantages", href: "#advantages" },
-  { label: "Programs", href: "#programs" },
+  { label: "Programs", href: "/programs" },
   { label: "Fees", href: "#fees" },
 ];
 
@@ -92,6 +93,11 @@ function ApplyButton({ className = "" }) {
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  // A link is "active" only when it targets a real route (not a same-page hash
+  // anchor) and matches the current path.
+  const isActiveLink = (href) => href.startsWith("/") && pathname === href;
 
   return (
     <header className="w-full">
@@ -118,16 +124,22 @@ export default function Header() {
 
           {/* Desktop navigation */}
           <ul className="hidden items-center gap-8 lg:flex xl:gap-10">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-sm font-semibold text-white transition-colors hover:text-atlas-lime"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const active = isActiveLink(link.href);
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    aria-current={active ? "page" : undefined}
+                    className={`text-sm font-semibold transition-colors hover:text-atlas-lime ${
+                      active ? "text-atlas-lime" : "text-white"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
           {/* Desktop call-to-action */}
@@ -179,17 +191,23 @@ export default function Header() {
           }`}
         >
           <ul className="flex flex-col gap-1 px-4 py-3 sm:px-6">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="block rounded-md px-3 py-3 text-base font-semibold text-white transition-colors hover:bg-white/10 hover:text-atlas-lime"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const active = isActiveLink(link.href);
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    aria-current={active ? "page" : undefined}
+                    className={`block rounded-md px-3 py-3 text-base font-semibold transition-colors hover:bg-white/10 hover:text-atlas-lime ${
+                      active ? "bg-white/5 text-atlas-lime" : "text-white"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
             <li className="px-3 pt-3 pb-2">
               <ApplyButton className="w-full" />
             </li>

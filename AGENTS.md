@@ -178,3 +178,9 @@ after sixteen section last (AtlasNews.js) now we moving forward to seventheen se
 
 
 after seventheen section last (Faq.js) now we moving forward to eighteen section  "public\reference-design\18-eighteen-section.png" first look at this carefully and analysis perfectly then use assets and everything from this folder "public\eighteen-section" make it similar perfectly like "public\reference-design\18-eighteen-section.png" responsive for all device perfectly
+
+
+
+
+
+C:\mern\github\faizan\onlineatlas\public\reference-design\programs\1.png
