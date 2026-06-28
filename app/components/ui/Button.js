@@ -1,13 +1,27 @@
 import Link from "next/link";
 import { ArrowRight } from "./icons";
 
-// Homepage primary CTA — lime pill, navy bold text. Identical classes to the
-// original homepage hero button so both pages share one style.
-export function PrimaryButton({ href = "#", children, withArrow = false, className = "" }) {
+// Primary CTA pill. `lime` (default) is the homepage hero button — identical
+// classes to before, so existing usages are unchanged. `navy` is the same pill
+// in navy/white for light sections.
+const PRIMARY_VARIANTS = {
+  lime: "bg-atlas-lime text-atlas-navy hover:bg-white",
+  navy: "bg-atlas-navy text-white hover:bg-[#0a1a3a]",
+};
+
+export function PrimaryButton({
+  href = "#",
+  children,
+  withArrow = false,
+  variant = "lime",
+  className = "",
+}) {
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center gap-2 rounded-full bg-atlas-lime px-7 py-3.5 text-base font-bold text-atlas-navy transition-colors hover:bg-white ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-base font-bold transition-colors ${
+        PRIMARY_VARIANTS[variant] ?? PRIMARY_VARIANTS.lime
+      } ${className}`}
     >
       {children}
       {withArrow && <ArrowRight />}

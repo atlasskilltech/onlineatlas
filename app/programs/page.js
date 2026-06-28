@@ -9,6 +9,10 @@ import CareerPaths from "../components/CareerPaths";
 import CareerOutcomes from "../components/CareerOutcomes";
 import IndustryLeaders from "../components/IndustryLeaders";
 import CurriculumSplit from "../components/CurriculumSplit";
+import AdmissionGateway from "../components/AdmissionGateway";
+import Curriculum from "../components/Curriculum";
+import LmsApp from "../components/LmsApp";
+import WhyOnlineMba from "../components/WhyOnlineMba";
 import { SITE_URL, BRAND, pageMetadata } from "../seo";
 
 export const metadata = {
@@ -93,6 +97,10 @@ export default function ProgramsPage() {
       <CareerOutcomes />
       <IndustryLeaders />
       <CurriculumSplit />
+      <AdmissionGateway />
+      <Curriculum />
+      <LmsApp />
+      <WhyOnlineMba />
     </main>
   );
 }
