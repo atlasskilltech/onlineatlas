@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -95,15 +95,57 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
+  // Scroll behavior (visual only):
+  //  • at the very top → yellow bar + nav shown (normal flow)
+  //  • scrolling down  → bar scrolls away, nav stays pinned (sticky, visible)
+  //  • scrolling up    → nav slides up out of view (transform), bar NOT restored
+  //  • back at the top → full header reappears
+  const [hidden, setHidden] = useState(false);
+  const barRef = useRef(null);
+  const lastY = useRef(0);
+  const ticking = useRef(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (ticking.current) return;
+      ticking.current = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        const barH = barRef.current?.offsetHeight ?? 0;
+        if (y <= barH) {
+          setHidden(false); // at/near top → show full header
+        } else if (y > lastY.current + 2) {
+          setHidden(false); // scrolling down → keep nav pinned & visible
+        } else if (y < lastY.current - 2) {
+          setHidden(true); // scrolling up → hide nav
+        }
+        lastY.current = y;
+        ticking.current = false;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll(); // sync initial state (e.g. on refresh mid-page)
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   // A link is "active" only when it targets a real route (not a same-page hash
   // anchor) and matches the current path.
   const isActiveLink = (href) => href.startsWith("/") && pathname === href;
 
   return (
-    <header className="w-full">
-      <AnnouncementBar />
+    // `display:contents` lets the bar + nav become direct flex children of
+    // <body>, so the sticky nav's containing block is the full page (it stays
+    // pinned while scrolling) — without changing any visual layout.
+    <header className="contents">
+      <div ref={barRef}>
+        <AnnouncementBar />
+      </div>
 
-      <nav className="bg-atlas-navy">
+      <nav
+        className={`sticky top-0 z-50 bg-atlas-navy transition-transform duration-300 ease-in-out will-change-transform motion-reduce:transition-none ${
+          hidden ? "-translate-y-full" : "translate-y-0"
+        }`}
+      >
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link
