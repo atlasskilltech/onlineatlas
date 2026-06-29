@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import Carousel from "./ui/Carousel";
+import SwiperCarousel from "./shared/SwiperCarousel";
 
 function ArrowRight() {
   return (
@@ -70,6 +70,95 @@ const PROGRAMS = [
       "GenAI Mastery track built with Microsoft",
       "Industry credentials from PwC, KPMG & Deloitte",
       "Harvard business simulations",
+      "Optional campus immersions + city chapters",
+    ],
+  },
+  // --- Temporary demo cards (placeholder content) ---
+  {
+    degree: "MBA",
+    apply: "Apply for Online MBA",
+    info: [
+      { label: "Mode", value: "100% Online" },
+      { label: "Duration", value: "2 Years" },
+      { label: "Immersion", value: "Optional, on-campus" },
+      { label: "Intake", value: "Jan 2027" },
+    ],
+    specializations: [
+      "Brand Management",
+      "Digital Marketing",
+      "Consumer Insights",
+      "Performance Marketing",
+    ],
+    features: [
+      "AI-driven marketing analytics",
+      "Live campaigns with partner brands",
+      "Martech & automation stack",
+      "Optional campus immersions + city chapters",
+    ],
+  },
+  {
+    degree: "MBA",
+    apply: "Apply for Online MBA",
+    info: [
+      { label: "Mode", value: "100% Online" },
+      { label: "Duration", value: "2 Years" },
+      { label: "Immersion", value: "Optional, on-campus" },
+      { label: "Intake", value: "Jan 2027" },
+    ],
+    specializations: [
+      "Corporate Finance",
+      "Investment Banking",
+      "FinTech",
+      "Risk & Compliance",
+    ],
+    features: [
+      "AI in financial modelling",
+      "Real-world market case studies",
+      "Industry credentials from Big 4 firms",
+      "Optional campus immersions + city chapters",
+    ],
+  },
+  {
+    degree: "BBA",
+    apply: "Apply for Online BBA",
+    info: [
+      { label: "Mode", value: "100% Online" },
+      { label: "Duration", value: "3 Years" },
+      { label: "Immersion", value: "Optional, on-campus" },
+      { label: "Intake", value: "Aug 2026" },
+    ],
+    specializations: [
+      "Data Visualisation",
+      "Predictive Analytics",
+      "Business Intelligence",
+      "Python for Business",
+    ],
+    features: [
+      "GenAI fundamentals from year one",
+      "Hands-on analytics projects",
+      "Industry credentials from leading firms",
+      "Optional campus immersions + city chapters",
+    ],
+  },
+  {
+    degree: "MBA",
+    apply: "Apply for Online MBA",
+    info: [
+      { label: "Mode", value: "100% Online" },
+      { label: "Duration", value: "2 Years" },
+      { label: "Immersion", value: "Optional, on-campus" },
+      { label: "Intake", value: "Jan 2027" },
+    ],
+    specializations: [
+      "Venture Building",
+      "Product Strategy",
+      "Fundraising",
+      "Growth",
+    ],
+    features: [
+      "Build a startup by graduation",
+      "Mentorship from founders & operators",
+      "AI product-building workshops",
       "Optional campus immersions + city chapters",
     ],
   },
@@ -213,19 +302,23 @@ export default function ProgramsShowcase() {
 
         {/* Program cards — auto-looping carousel */}
         <div className="mt-10 lg:mt-12">
-          <Carousel
-            items={PROGRAMS}
-            getKey={(p, i) => `${p.degree}-${i}`}
-            renderItem={(program) => <ProgramCard program={program} />}
-            itemClassName="w-full lg:w-[calc(50%-1rem)]"
-            gapClassName="gap-8"
-            defaultPerView={2}
-            getPerView={() =>
-              typeof window !== "undefined" && window.innerWidth >= 1024 ? 2 : 1
-            }
-            dotLabel={(i) => `Go to ${PROGRAMS[i].degree} program`}
+          <SwiperCarousel
             ariaLabel="ATLAS programs"
-          />
+            slidesPerView={1}
+            spaceBetween={32}
+            breakpoints={{ 1024: { slidesPerView: 2 } }}
+            loop
+            autoplay
+            autoplayDelay={4000}
+            slideClassName="h-auto!"
+            paginationWrapClass="mt-10 flex items-center justify-center gap-2"
+            dotActiveClass="h-2 w-7 rounded-full bg-atlas-lime transition-all duration-300"
+            dotLabel={(i) => `Go to program ${i + 1}`}
+          >
+            {PROGRAMS.map((program, i) => (
+              <ProgramCard key={`${program.degree}-${i}`} program={program} />
+            ))}
+          </SwiperCarousel>
         </div>
       </div>
     </section>

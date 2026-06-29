@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Carousel from "./ui/Carousel";
+import SwiperCarousel from "./shared/SwiperCarousel";
 
 const LOGO = "/ninetheen-section/brand-logo";
 
@@ -100,22 +100,25 @@ export default function CaseChallenges() {
 
         {/* PART 2 — brand challenge carousel */}
         <div className="mt-12 lg:mt-14">
-          <Carousel
-            items={CHALLENGES}
-            getKey={(c, i) => `${c.label}-${i}`}
-            renderItem={(item) => <ChallengeCard item={item} />}
-            itemClassName="w-[calc(50%-10px)] sm:w-[calc(33.333%-13px)] lg:w-[calc(20%-16px)]"
-            gapClassName="gap-5"
-            defaultPerView={2}
-            getPerView={() => {
-              if (typeof window === "undefined") return 2;
-              if (window.innerWidth >= 1024) return 5;
-              if (window.innerWidth >= 640) return 3;
-              return 2;
-            }}
-            dotLabel={(i) => `Go to ${CHALLENGES[i].label}`}
+          <SwiperCarousel
             ariaLabel="Corporate case challenges"
-          />
+            slidesPerView={2}
+            spaceBetween={20}
+            breakpoints={{
+              640: { slidesPerView: 3 },
+              1024: { slidesPerView: 5 },
+            }}
+            loop
+            autoplay
+            autoplayDelay={4000}
+            paginationWrapClass="mt-10 flex items-center justify-center gap-2"
+            dotActiveClass="h-2 w-7 rounded-full bg-atlas-lime transition-all duration-300"
+            dotLabel={(i) => `Go to ${CHALLENGES[i].label}`}
+          >
+            {CHALLENGES.map((item, i) => (
+              <ChallengeCard key={`${item.label}-${i}`} item={item} />
+            ))}
+          </SwiperCarousel>
         </div>
       </div>
     </section>

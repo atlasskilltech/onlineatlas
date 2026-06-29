@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { PrimaryButton } from "./ui/Button";
-import MultiViewCarousel from "./ui/MultiViewCarousel";
+import SwiperCarousel from "./shared/SwiperCarousel";
 
 const QUOTE_ICON = "/fourtheen-section/icon/qoute.png";
 
@@ -13,7 +13,7 @@ const STUDENTS = [
   {
     name: "Ansh Maheshwari",
     batch: "Batch of 2025",
-    photo: "/sixth-section/students/mridul-nadar/person.png",
+    photo: "/twenty-five-section/students/ansh-maheshwari/person.png",
     quote:
       "Conducted an interactive session on entrepreneurship, digital disruption, and building scalable modern brands, focusing on innovation, business growth, and sustainable branding.",
   },
@@ -33,31 +33,31 @@ function StudentCard({ s }) {
         aria-hidden="true"
         width={54}
         height={40}
-        className="h-9 w-auto self-start sm:h-10"
+        className="h-10 w-auto self-start sm:h-11"
       />
 
-      {/* Testimonial + name on the left, photo top-right */}
-      <div className="mt-5 flex gap-4 sm:gap-5">
-        <div className="min-w-0 flex-1">
-          <blockquote className="text-[13.5px] leading-relaxed text-white/85 sm:text-sm">
-            {s.quote}
-          </blockquote>
-          <div className="mt-6">
-            <p className="text-lg font-bold text-atlas-lime">{s.name}</p>
-            <p className="mt-1 text-sm text-white/60">{s.batch}</p>
-          </div>
-        </div>
+      {/* Quote text on the left, portrait image in the upper-right */}
+      <div className="mt-5 flex gap-5">
+        <blockquote className="min-w-0 flex-1 text-[13.5px] leading-relaxed text-white/85 sm:text-sm">
+          {s.quote}
+        </blockquote>
 
-        <div className="relative aspect-[9/10] w-[115px] shrink-0 self-start overflow-hidden rounded-xl bg-white/5">
+        <div className="relative aspect-[5/6] w-[118px] shrink-0 self-start overflow-hidden rounded-2xl bg-white/5">
           <Image
             src={s.photo}
             alt={s.name}
             fill
-            sizes="125px"
+            sizes="120px"
             loading="lazy"
             className="object-cover object-top"
           />
         </div>
+      </div>
+
+      {/* Name + batch below */}
+      <div className="mt-6">
+        <p className="text-lg font-bold text-atlas-lime">{s.name}</p>
+        <p className="mt-1 text-sm text-white/60">{s.batch}</p>
       </div>
     </article>
   );
@@ -88,15 +88,20 @@ export default function StudentVoices() {
 
           {/* Right — carousel (min-w-0 so it stays inside its grid track) */}
           <div className="min-w-0">
-            <MultiViewCarousel
-              slides={SLIDES.map((s, i) => (
+            <SwiperCarousel
+              ariaLabel="Student testimonials"
+              slidesPerView="auto"
+              spaceBetween={28}
+              loop
+              autoplay
+              autoplayDelay={4500}
+              slideClassName="h-auto w-[86%]! sm:w-[78%]! lg:w-[400px]!"
+              paginationWrapClass="mt-7 flex items-center justify-center gap-2.5"
+            >
+              {SLIDES.map((s, i) => (
                 <StudentCard key={i} s={s} />
               ))}
-              ariaLabel="Student testimonials"
-              slideClassName="basis-[86%] sm:basis-[360px]"
-              gapClassName="gap-6"
-              paginationClassName="mt-7"
-            />
+            </SwiperCarousel>
           </div>
         </div>
       </div>

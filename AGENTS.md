@@ -331,3 +331,21 @@ now on programs start making sixtheen section design reference from this folder 
 
 
 now on programs start making seventheen section design reference from this folder "public\reference-design\programs\17.png" and take assets from this "public/"   folder also dont make new desing stick with the main page desing and also there is many chance to use usable component from main page so always try to *use usable component* with out any issue on tha main page okay and make responsive for all device perfectly
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+StudentSuccess.js
+ProgramsShowcase.js
+HrTestimonials.js

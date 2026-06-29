@@ -115,7 +115,7 @@ export default function IndustryEcosystem() {
                 height={logo.height}
                 loading="lazy"
                 sizes="(max-width: 640px) 40vw, (max-width: 1024px) 20vw, 150px"
-                className="h-auto w-auto max-h-8 max-w-[110px] object-contain opacity-90 transition-opacity duration-300 hover:opacity-100 sm:max-h-9 sm:max-w-[130px] lg:max-h-9 lg:max-w-[150px]"
+                className="h-auto w-auto max-h-[38px] max-w-[132px] object-contain opacity-90 transition-opacity duration-300 hover:opacity-100 sm:max-h-[44px] sm:max-w-[156px] lg:max-h-[44px] lg:max-w-[180px]"
               />
             </div>
           ))}

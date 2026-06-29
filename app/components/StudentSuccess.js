@@ -1,7 +1,11 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Grid, Keyboard, A11y } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/grid";
 
 const BASE = "/sixth-section/students";
 
@@ -72,140 +76,24 @@ function StudentCard({ s }) {
   );
 }
 
-const chunk = (arr, size) => {
-  const out = [];
-  for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
-  return out;
-};
-
-const TRANSITION = "transform 520ms cubic-bezier(0.22, 0.61, 0.36, 1)";
-
 export default function StudentSuccess() {
-  // Cards per page by breakpoint: desktop 8 (2×4), tablet 4 (2×2), mobile 2 (2×1).
-  const [cardsPerPage, setCardsPerPage] = useState(8);
+  const swiperRef = useRef(null);
+  const [pages, setPages] = useState(1);
+  const [active, setActive] = useState(0);
 
-  const pages = useMemo(() => chunk(STUDENTS, cardsPerPage), [cardsPerPage]);
-  const pageCount = pages.length;
-  const loop = pageCount > 1;
-
-  // With looping we pad with clones: [last, ...pages, first]; start at real index 1.
-  const slides = useMemo(
-    () => (loop ? [pages[pageCount - 1], ...pages, pages[0]] : pages),
-    [pages, pageCount, loop]
-  );
-
-  const [index, setIndex] = useState(0);
-  const trackRef = useRef(null);
-  const viewportRef = useRef(null);
-  const animateRef = useRef(true);
-  const [snapTick, setSnapTick] = useState(0);
-
-  // Drag/swipe state
-  const drag = useRef({ active: false, startX: 0, dx: 0 });
-
-  const activeDot = loop ? ((index - 1) % pageCount + pageCount) % pageCount : 0;
-
-  const applyTransform = useCallback(() => {
-    const t = trackRef.current;
-    if (!t) return;
-    t.style.transition = animateRef.current ? TRANSITION : "none";
-    t.style.transform = `translate3d(${-index * 100}%, 0, 0)`;
-    if (!animateRef.current) {
-      // Commit the instant jump, then re-arm animation for the next move.
-      void t.offsetHeight;
-      animateRef.current = true;
-    }
-  }, [index]);
-
-  useLayoutEffect(() => {
-    applyTransform();
-  }, [applyTransform, snapTick]);
-
-  // Recompute cards-per-page on resize and reset to the first real page.
-  useEffect(() => {
-    const compute = () => {
-      const w = window.innerWidth;
-      return w >= 1024 ? 8 : w >= 640 ? 4 : 2;
-    };
-    const onResize = () => {
-      const c = compute();
-      setCardsPerPage((prev) => (prev === c ? prev : c));
-    };
-    onResize();
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
-
-  // When the layout (page count) changes, jump to the first real slide w/o animation.
-  useEffect(() => {
-    animateRef.current = false;
-    setIndex(loop ? 1 : 0);
-  }, [cardsPerPage, loop]);
-
-  const goNext = useCallback(() => {
-    animateRef.current = true;
-    setIndex((i) => i + 1);
-  }, []);
-  const goPrev = useCallback(() => {
-    animateRef.current = true;
-    setIndex((i) => i - 1);
-  }, []);
-  const goToPage = useCallback(
-    (p) => {
-      animateRef.current = true;
-      setIndex(loop ? p + 1 : 0);
-    },
-    [loop]
-  );
-
-  // Seamless wrap: after sliding onto a clone, snap to the matching real page.
-  const onTransitionEnd = useCallback(() => {
-    if (!loop) return;
-    if (index === pageCount + 1) {
-      animateRef.current = false;
-      setIndex(1);
-    } else if (index === 0) {
-      animateRef.current = false;
-      setIndex(pageCount);
-    }
-  }, [index, loop, pageCount]);
-
-  // Pointer drag / touch swipe
-  const onPointerDown = (e) => {
-    if (!loop) return;
-    drag.current = { active: true, startX: e.clientX, dx: 0 };
-    const t = trackRef.current;
-    if (t) t.style.transition = "none";
-    e.currentTarget.setPointerCapture?.(e.pointerId);
-  };
-  const onPointerMove = (e) => {
-    if (!drag.current.active) return;
-    drag.current.dx = e.clientX - drag.current.startX;
-    const t = trackRef.current;
-    if (t) {
-      t.style.transform = `translate3d(calc(${-index * 100}% + ${drag.current.dx}px), 0, 0)`;
-    }
-  };
-  const endDrag = () => {
-    if (!drag.current.active) return;
-    const { dx } = drag.current;
-    drag.current.active = false;
-    const w = viewportRef.current?.offsetWidth || 1;
-    const threshold = w * 0.15;
-    animateRef.current = true;
-    if (dx <= -threshold) goNext();
-    else if (dx >= threshold) goPrev();
-    else setSnapTick((n) => n + 1); // snap back to current index
+  // Page count + active page come from Swiper's snap grid, so they stay correct
+  // across breakpoints (2×4 → 2×2 → 2×1) and after resize.
+  const sync = (sw) => {
+    setPages(sw.snapGrid.length);
+    setActive(sw.snapIndex);
   };
 
-  const onKeyDown = (e) => {
-    if (e.key === "ArrowRight") {
-      e.preventDefault();
-      goNext();
-    } else if (e.key === "ArrowLeft") {
-      e.preventDefault();
-      goPrev();
-    }
+  const goToPage = (i) => {
+    const sw = swiperRef.current;
+    if (!sw) return;
+    const perView = sw.params.slidesPerView || 1;
+    const rows = sw.params.grid?.rows || 1;
+    sw.slideTo(i * perView * rows);
   };
 
   return (
@@ -220,65 +108,70 @@ export default function StudentSuccess() {
           stories from the ATLAS ecosystem
         </p>
 
-        {/* Carousel */}
-        <div
-          ref={viewportRef}
-          className="mt-10 overflow-hidden lg:mt-12"
-          role="group"
-          aria-roledescription="carousel"
-          tabIndex={0}
-          onKeyDown={onKeyDown}
-          onPointerDown={onPointerDown}
-          onPointerMove={onPointerMove}
-          onPointerUp={endDrag}
-          onPointerCancel={endDrag}
-          onPointerLeave={endDrag}
-          style={{ touchAction: "pan-y" }}
-        >
-          <div
-            ref={trackRef}
-            className="flex"
-            onTransitionEnd={onTransitionEnd}
+        {/* Carousel — paged 2-row grid: 2×4 desktop, 2×2 tablet, 2×1 mobile */}
+        <div className="mt-10 lg:mt-12">
+          <Swiper
+            modules={[Grid, Keyboard, A11y]}
+            slidesPerView={1}
+            slidesPerGroup={1}
+            spaceBetween={12}
+            grid={{ rows: 2, fill: "row" }}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+                slidesPerGroup: 2,
+                spaceBetween: 16,
+                grid: { rows: 2, fill: "row" },
+              },
+              1024: {
+                slidesPerView: 4,
+                slidesPerGroup: 4,
+                spaceBetween: 16,
+                grid: { rows: 2, fill: "row" },
+              },
+            }}
+            rewind
+            keyboard={{ enabled: true }}
+            onSwiper={(s) => {
+              swiperRef.current = s;
+              sync(s);
+            }}
+            onSlideChange={sync}
+            onSnapGridLengthChange={sync}
+            onResize={sync}
+            aria-label="Student success stories"
           >
-            {slides.map((page, pi) => (
-              <div key={pi} className="w-full shrink-0" aria-hidden={loop && (pi === 0 || pi === slides.length - 1)}>
-                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
-                  {page.map((s) => (
-                    <StudentCard key={s.slug} s={s} />
-                  ))}
-                </div>
-              </div>
+            {STUDENTS.map((s, i) => (
+              <SwiperSlide key={i} className="h-auto">
+                <StudentCard s={s} />
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         </div>
 
         {/* Controls */}
         <div className="relative mt-8 flex items-center justify-center lg:mt-10">
           {/* Pagination dots — centered */}
-          <div className="flex items-center gap-2" role="tablist" aria-label="Carousel pagination">
-            {pages.map((_, i) => {
-              const isActive = i === activeDot;
-              return (
-                <button
-                  key={i}
-                  type="button"
-                  role="tab"
-                  aria-selected={isActive}
-                  aria-label={`Go to slide ${i + 1}`}
-                  onClick={() => goToPage(i)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    isActive ? "w-7 bg-atlas-lime" : "w-2 bg-white/25 hover:bg-white/40"
-                  }`}
-                />
-              );
-            })}
+          <div className="flex items-center justify-center gap-2">
+            {Array.from({ length: pages }).map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                aria-label={`Go to slide ${i + 1}`}
+                aria-current={i === active}
+                onClick={() => goToPage(i)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  i === active ? "w-7 bg-atlas-lime" : "w-2 bg-white/25 hover:bg-white/40"
+                }`}
+              />
+            ))}
           </div>
 
           {/* Prev / Next arrows — bottom-right */}
           <div className="absolute right-0 flex items-center gap-3">
             <button
               type="button"
-              onClick={goPrev}
+              onClick={() => swiperRef.current?.slidePrev()}
               aria-label="Previous"
               className="transition-transform duration-200 hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-atlas-lime"
             >
@@ -293,7 +186,7 @@ export default function StudentSuccess() {
             </button>
             <button
               type="button"
-              onClick={goNext}
+              onClick={() => swiperRef.current?.slideNext()}
               aria-label="Next"
               className="transition-transform duration-200 hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-atlas-lime"
             >

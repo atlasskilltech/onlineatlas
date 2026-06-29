@@ -1,14 +1,5 @@
-"use client";
-
-import {
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
 import Image from "next/image";
+import SwiperCarousel from "./shared/SwiperCarousel";
 
 const BASE = "/sixteen-section/section-1";
 
@@ -34,12 +25,9 @@ const SLIDES = Array.from({ length: 4 }, (_, i) => ({
   key: i,
 }));
 
-const TRANSITION = "transform 560ms cubic-bezier(0.22, 0.61, 0.36, 1)";
-const AUTOPLAY_MS = 4500;
-
 function NewsSlide({ a, priority }) {
   return (
-    <div className="w-full shrink-0 px-0.5">
+    <div className="px-0.5">
       <div className="rounded-[28px] bg-white p-2.5 shadow-2xl shadow-black/30 sm:p-3">
         <div className="grid gap-3 lg:grid-cols-2 lg:gap-5">
           {/* LEFT — article panel */}
@@ -86,121 +74,6 @@ function NewsSlide({ a, priority }) {
 }
 
 export default function AtlasNews() {
-  const pageCount = SLIDES.length;
-  const loop = pageCount > 1;
-
-  // Clone-pad for a seamless loop: [last, ...slides, first]; start at real index 1.
-  const slides = useMemo(
-    () => (loop ? [SLIDES[pageCount - 1], ...SLIDES, SLIDES[0]] : SLIDES),
-    [loop, pageCount]
-  );
-
-  const [index, setIndex] = useState(loop ? 1 : 0);
-  const trackRef = useRef(null);
-  const viewportRef = useRef(null);
-  const animateRef = useRef(true);
-  const pausedRef = useRef(false);
-  const [snapTick, setSnapTick] = useState(0);
-  const drag = useRef({ active: false, startX: 0, dx: 0 });
-
-  const activeDot = loop ? (((index - 1) % pageCount) + pageCount) % pageCount : index;
-
-  const applyTransform = useCallback(() => {
-    const t = trackRef.current;
-    if (!t) return;
-    t.style.transition = animateRef.current ? TRANSITION : "none";
-    t.style.transform = `translate3d(${-index * 100}%, 0, 0)`;
-    if (!animateRef.current) {
-      void t.offsetHeight; // commit the instant jump before re-arming animation
-      animateRef.current = true;
-    }
-  }, [index]);
-
-  useLayoutEffect(() => {
-    applyTransform();
-  }, [applyTransform, snapTick]);
-
-  const goNext = useCallback(() => {
-    animateRef.current = true;
-    setIndex((i) => i + 1);
-  }, []);
-  const goPrev = useCallback(() => {
-    animateRef.current = true;
-    setIndex((i) => i - 1);
-  }, []);
-  const goToPage = useCallback(
-    (p) => {
-      animateRef.current = true;
-      setIndex(loop ? p + 1 : p);
-    },
-    [loop]
-  );
-
-  // Seamless wrap: after landing on a clone, snap to the matching real slide.
-  const onTransitionEnd = useCallback(() => {
-    if (!loop) return;
-    if (index === pageCount + 1) {
-      animateRef.current = false;
-      setIndex(1);
-    } else if (index === 0) {
-      animateRef.current = false;
-      setIndex(pageCount);
-    }
-  }, [index, loop, pageCount]);
-
-  // Autoplay — paused on hover or while dragging, and disabled for reduced motion.
-  useEffect(() => {
-    if (!loop) return;
-    if (
-      typeof window !== "undefined" &&
-      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
-    ) {
-      return;
-    }
-    const id = setInterval(() => {
-      if (!pausedRef.current && !drag.current.active) goNext();
-    }, AUTOPLAY_MS);
-    return () => clearInterval(id);
-  }, [loop, goNext]);
-
-  // Pointer drag / touch swipe
-  const onPointerDown = (e) => {
-    if (!loop) return;
-    drag.current = { active: true, startX: e.clientX, dx: 0 };
-    const t = trackRef.current;
-    if (t) t.style.transition = "none";
-    e.currentTarget.setPointerCapture?.(e.pointerId);
-  };
-  const onPointerMove = (e) => {
-    if (!drag.current.active) return;
-    drag.current.dx = e.clientX - drag.current.startX;
-    const t = trackRef.current;
-    if (t) {
-      t.style.transform = `translate3d(calc(${-index * 100}% + ${drag.current.dx}px), 0, 0)`;
-    }
-  };
-  const endDrag = () => {
-    if (!drag.current.active) return;
-    const { dx } = drag.current;
-    drag.current.active = false;
-    const w = viewportRef.current?.offsetWidth || 1;
-    const threshold = w * 0.15;
-    animateRef.current = true;
-    if (dx <= -threshold) goNext();
-    else if (dx >= threshold) goPrev();
-    else setSnapTick((n) => n + 1); // snap back to current
-  };
-
-  const onKeyDown = (e) => {
-    if (e.key === "ArrowRight") {
-      e.preventDefault();
-      goNext();
-    } else if (e.key === "ArrowLeft") {
-      e.preventDefault();
-      goPrev();
-    }
-  };
-
   return (
     <section className="bg-atlas-navy text-white" aria-labelledby="atlas-news-heading">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
@@ -211,48 +84,20 @@ export default function AtlasNews() {
           ATLAS in the News
         </h2>
 
-        {/* Carousel */}
-        <div
-          ref={viewportRef}
-          className="mt-8 overflow-hidden lg:mt-10"
-          role="group"
-          aria-roledescription="carousel"
-          aria-label="ATLAS news articles"
-          tabIndex={0}
-          onKeyDown={onKeyDown}
-          onMouseEnter={() => (pausedRef.current = true)}
-          onMouseLeave={() => (pausedRef.current = false)}
-          onPointerDown={onPointerDown}
-          onPointerMove={onPointerMove}
-          onPointerUp={endDrag}
-          onPointerCancel={endDrag}
-          onPointerLeave={endDrag}
-          style={{ touchAction: "pan-y" }}
-        >
-          <div ref={trackRef} className="flex" onTransitionEnd={onTransitionEnd}>
-            {slides.map((a, i) => (
-              <NewsSlide key={i} a={a} priority={i === 1} />
+        <div className="mt-8 lg:mt-10">
+          <SwiperCarousel
+            ariaLabel="ATLAS news articles"
+            slidesPerView={1}
+            spaceBetween={8}
+            loop
+            autoplay
+            autoplayDelay={4500}
+            paginationWrapClass="mt-8 flex items-center justify-center gap-2.5"
+          >
+            {SLIDES.map((a, i) => (
+              <NewsSlide key={i} a={a} priority={i === 0} />
             ))}
-          </div>
-        </div>
-
-        {/* Pagination */}
-        <div className="mt-8 flex items-center justify-center gap-2.5">
-          {SLIDES.map((_, i) => {
-            const isActive = i === activeDot;
-            return (
-              <button
-                key={i}
-                type="button"
-                aria-label={`Go to article ${i + 1}`}
-                aria-current={isActive}
-                onClick={() => goToPage(i)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  isActive ? "w-6 bg-atlas-lime" : "w-2 bg-white/25 hover:bg-white/40"
-                }`}
-              />
-            );
-          })}
+          </SwiperCarousel>
         </div>
       </div>
     </section>
