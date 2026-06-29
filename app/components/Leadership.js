@@ -1,7 +1,11 @@
 "use client";
 
-import { useState, useRef, useEffect, useMemo, useCallback } from "react";
+import { useMemo, useState } from "react";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Autoplay, Keyboard, A11y } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
 
 const BASE = "/fourth-section/leaders";
 
@@ -32,7 +36,7 @@ const TABS = [
 
 function LeaderCard({ leader }) {
   return (
-    <article className="leader-card relative w-[210px] shrink-0 overflow-hidden rounded-2xl shadow-2xl shadow-black/50 ring-1 ring-white/10 [backface-visibility:hidden] [transform:translateZ(0)] [will-change:transform,opacity,filter] sm:w-[240px] lg:w-[260px]">
+    <article className="leader-card relative w-[210px] shrink-0 overflow-hidden rounded-2xl shadow-2xl shadow-black/50 ring-1 ring-white/10 [backface-visibility:hidden] [transform:translateZ(0)] sm:w-[240px] lg:w-[260px]">
       <div className="relative aspect-[640/934] w-full">
         <Image
           src={`${BASE}/${leader.slug}/${leader.person}`}
@@ -65,118 +69,36 @@ function LeaderCard({ leader }) {
   );
 }
 
-const smoothstep = (a, b, x) => {
-  const t = Math.max(0, Math.min(1, (x - a) / (b - a)));
-  return t * t * (3 - 2 * t);
-};
+// Depth-aware opacity + subtle blur driven by each slide's distance from centre
+// (coverflow itself handles scale / rotate / z-index). The transition duration
+// is matched to the Swiper speed so blur/fade animate DURING the slide, not after.
+function applyDepth(swiper) {
+  for (const slide of swiper.slides) {
+    const p = Math.min(Math.abs(slide.progress || 0), 3);
+    const blur = p > 0.6 ? Math.min((p - 0.6) * 3, 5) : 0;
+    slide.style.filter = blur > 0.05 ? `blur(${blur.toFixed(2)}px)` : "";
+    slide.style.opacity = Math.max(0.3, 1 - 0.4 * p).toFixed(3);
+  }
+}
+
+function applyDepthTransition(swiper, duration) {
+  for (const slide of swiper.slides) {
+    slide.style.transitionProperty = "transform, filter, opacity";
+    slide.style.transitionDuration = `${duration}ms`;
+  }
+}
 
 export default function Leadership() {
   const [active, setActive] = useState("advisory");
   const leaders = TEAMS[active];
 
-  // Repeat the team enough times that the visible track always holds several
-  // full copies — guarantees a gap-free wrap and a true infinite loop.
-  const repeats = Math.max(3, Math.ceil(18 / leaders.length));
+  // Repeat the team to a comfortable count so the centred coverflow loop always
+  // has enough slides to fill both edges (same leaders cycling — no new people).
+  const repeats = Math.max(2, Math.ceil(14 / leaders.length));
   const cards = useMemo(
     () => Array.from({ length: repeats }).flatMap(() => leaders),
     [leaders, repeats]
   );
-
-  const setLen = leaders.length;
-  const containerRef = useRef(null);
-  const trackRef = useRef(null);
-  const offsetRef = useRef(0);
-  const pausedRef = useRef(false);
-  // groupWidth = pixel distance of one full team copy (the loop period).
-  const metricsRef = useRef({ groupWidth: 0, baseLefts: [], cardW: 0, containerW: 0 });
-
-  const measure = useCallback(() => {
-    const track = trackRef.current;
-    const cont = containerRef.current;
-    if (!track || !cont || track.children.length <= setLen) return;
-    const children = Array.from(track.children);
-    const baseLefts = children.map((c) => c.offsetLeft);
-    metricsRef.current = {
-      baseLefts,
-      groupWidth: baseLefts[setLen] - baseLefts[0],
-      cardW: children[0].offsetWidth,
-      containerW: cont.offsetWidth,
-    };
-  }, [setLen]);
-
-  useEffect(() => {
-    offsetRef.current = 0;
-    measure();
-
-    const reduce =
-      typeof window !== "undefined" &&
-      window.matchMedia &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const SPEED = reduce ? 0 : 42; // px/s — slow, premium
-
-    let raf;
-    let last = performance.now();
-
-    const frame = (now) => {
-      const dt = Math.min(now - last, 64); // cap to avoid jumps after tab blur
-      last = now;
-      const m = metricsRef.current;
-
-      if (!pausedRef.current && m.groupWidth > 0 && SPEED > 0) {
-        let o = offsetRef.current - (SPEED * dt) / 1000;
-        // Seamless wrap: advance by exactly one team copy when one scrolls past.
-        if (-o >= m.groupWidth) o += m.groupWidth;
-        offsetRef.current = o;
-      }
-
-      const o = offsetRef.current;
-      const track = trackRef.current;
-      if (track) track.style.transform = `translate3d(${o}px,0,0)`;
-
-      if (track && m.containerW > 0) {
-        const center = m.containerW / 2;
-        const half = m.containerW / 2;
-        const children = track.children;
-        for (let i = 0; i < children.length; i++) {
-          const cx = m.baseLefts[i] + o + m.cardW / 2;
-          let d = (cx - center) / half; // -1 (left edge) .. 0 (center) .. 1 (right edge)
-          d = Math.max(-1.8, Math.min(1.8, d));
-          const ad = Math.abs(d);
-
-          const scale = 1 - 0.14 * smoothstep(0.18, 1.1, ad);
-          const ty = 40 * d * d; // arc: center high, edges drop
-          const rot = 5.5 * d; // gentle fan away from center
-          // Keep the central cluster crisp; only the outermost cards blur/fade.
-          const blur = 6 * smoothstep(0.6, 1.25, ad);
-          const opacity = 1 - 0.6 * smoothstep(0.6, 1.3, ad);
-
-          const el = children[i];
-          el.style.transform = `translateY(${ty.toFixed(2)}px) rotate(${rot.toFixed(
-            2
-          )}deg) scale(${scale.toFixed(3)})`;
-          el.style.filter = blur > 0.06 ? `blur(${blur.toFixed(2)}px)` : "none";
-          el.style.opacity = Math.max(0.12, opacity).toFixed(3);
-          el.style.zIndex = String(Math.round(100 - ad * 60));
-        }
-      }
-
-      raf = requestAnimationFrame(frame);
-    };
-
-    raf = requestAnimationFrame(frame);
-    const onResize = () => measure();
-    window.addEventListener("resize", onResize);
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("resize", onResize);
-    };
-  }, [active, measure]);
-
-  // Re-measure once layout/fonts settle (card widths are fixed, so this is just a safety net).
-  useEffect(() => {
-    const t = setTimeout(measure, 200);
-    return () => clearTimeout(t);
-  }, [active, measure]);
 
   return (
     <section className="relative overflow-hidden bg-[#081f3d] text-white">
@@ -216,25 +138,55 @@ export default function Leadership() {
         </div>
       </div>
 
-      {/* Auto-scrolling coverflow carousel */}
-      <div
-        ref={containerRef}
-        onMouseEnter={() => (pausedRef.current = true)}
-        onMouseLeave={() => (pausedRef.current = false)}
-        className="relative mt-8 overflow-hidden py-12 sm:mt-10 lg:py-16"
-      >
+      {/* Cinematic coverflow carousel — step → pause → step (infinite) */}
+      <div className="relative mt-8 overflow-hidden py-12 sm:mt-10 lg:py-16">
         {/* Edge gradient masks — cards fade into the dark instead of being cut */}
         <div className="pointer-events-none absolute inset-y-0 left-0 z-30 w-20 bg-gradient-to-r from-[#081f3d] via-[#081f3d]/80 to-transparent sm:w-40 lg:w-56" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-30 w-20 bg-gradient-to-l from-[#081f3d] via-[#081f3d]/80 to-transparent sm:w-40 lg:w-56" />
 
-        <div
-          ref={trackRef}
-          className="flex w-max gap-5 will-change-transform sm:gap-6"
+        <Swiper
+          key={active}
+          modules={[EffectCoverflow, Autoplay, Keyboard, A11y]}
+          effect="coverflow"
+          grabCursor
+          centeredSlides
+          slidesPerView="auto"
+          loop
+          watchSlidesProgress
+          speed={900}
+          spaceBetween={20}
+          breakpoints={{ 640: { spaceBetween: 24 } }}
+          keyboard={{ enabled: true }}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          coverflowEffect={{
+            rotate: 10,
+            stretch: 0,
+            depth: 140,
+            modifier: 1,
+            scale: 0.88,
+            slideShadows: false,
+          }}
+          onSwiper={applyDepth}
+          onSetTranslate={applyDepth}
+          onSetTransition={(swiper, duration) =>
+            applyDepthTransition(swiper, duration)
+          }
+          onResize={applyDepth}
+          aria-label="ATLAS leadership and advisory team"
         >
           {cards.map((leader, i) => (
-            <LeaderCard key={`${leader.slug}-${i}`} leader={leader} />
+            <SwiperSlide
+              key={`${leader.slug}-${i}`}
+              className="w-[210px]! sm:w-[240px]! lg:w-[260px]!"
+            >
+              <LeaderCard leader={leader} />
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
     </section>
   );
