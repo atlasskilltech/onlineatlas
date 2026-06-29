@@ -153,7 +153,7 @@ export default function Curriculum() {
                 {TOOLS.map((tool) => (
                   <div
                     key={tool.name}
-                    className="flex h-11 items-center justify-center rounded-lg bg-white px-2"
+                    className="flex h-11 items-center justify-center rounded-lg bg-white px-1.5"
                   >
                     <Image
                       src={tool.src}
@@ -161,7 +161,7 @@ export default function Curriculum() {
                       width={tool.w}
                       height={tool.h}
                       loading="lazy"
-                      className="max-h-5 w-auto object-contain"
+                      className="max-h-6 w-auto object-contain"
                     />
                   </div>
                 ))}

@@ -36,10 +36,15 @@ const STEPS = [
 export default function AdmissionGateway() {
   return (
     <section className="relative overflow-hidden bg-[#081f3d] text-white">
-      {/* Subtle decorative glow, bottom-left (matches the reference) */}
-      <div
+      {/* Decorative green star — bottom-left, partially off the section edge,
+          behind all content (DOM order keeps it under the relative wrapper). */}
+      <Image
+        src="/seventheen-section/shape/green-vector.png"
+        alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-16 -left-16 h-72 w-72 rounded-full bg-[#163c43]/30 blur-3xl"
+        width={174}
+        height={360}
+        className="pointer-events-none absolute bottom-0 left-0 w-[150px] -translate-x-[35%] translate-y-[28%] select-none opacity-70 sm:w-[180px] lg:w-[215px]"
       />
 
       <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
@@ -72,7 +77,7 @@ export default function AdmissionGateway() {
         </div>
 
         {/* Admission process card */}
-        <div className="relative mt-7 rounded-3xl border border-white/10 bg-gradient-to-br from-[#13315f] via-[#1d4587] to-[#0c2348] shadow-2xl shadow-black/40 lg:mt-8 lg:min-h-[400px]">
+        <div className="relative mt-7 overflow-visible rounded-3xl border border-white/10 bg-gradient-to-br from-[#13315f] via-[#1d4587] to-[#0c2348] shadow-2xl shadow-black/40 lg:mt-8 lg:min-h-[400px]">
           {/* Lighting / glow, clipped to the rounded card */}
           <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-3xl">
             <div className="absolute -top-12 left-1/4 h-72 w-[28rem] rounded-full bg-[#3f74d8]/25 blur-3xl" />
@@ -108,7 +113,10 @@ export default function AdmissionGateway() {
             </div>
           </div>
 
-          {/* Person — below the steps on mobile, large bottom-right on desktop */}
+          {/* Person — below the steps on mobile; on desktop anchored to the
+              card's bottom-right and taller than the card so the head/shoulders
+              break out above the top edge (kept under the 32px gap above so it
+              never overlaps the eligibility cards). */}
           <Image
             src="/twenty-one-section/person/1.png"
             alt="An ATLAS MBA applicant"
@@ -116,7 +124,7 @@ export default function AdmissionGateway() {
             height={416}
             sizes="(max-width: 1024px) 250px, 330px"
             loading="lazy"
-            className="relative z-10 mx-auto mt-8 block h-auto w-[230px] sm:w-[260px] lg:absolute lg:bottom-0 lg:right-6 lg:mt-0 lg:h-[376px] lg:w-auto"
+            className="relative z-20 mx-auto mt-8 block h-auto w-[230px] sm:w-[260px] lg:absolute lg:bottom-0 lg:right-2 lg:mt-0 lg:h-[428px] lg:w-auto lg:-translate-y-3"
           />
         </div>
       </div>
