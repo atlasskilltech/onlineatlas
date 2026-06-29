@@ -1,6 +1,4 @@
-import Image from "next/image";
-import FeatureChip from "./ui/FeatureChip";
-import FeatureCard from "./ui/FeatureCard";
+import ProgramsHighlightSection from "./shared/ProgramsHighlightSection";
 import { PrimaryButton } from "./ui/Button";
 
 const ICON = "/eight-section/icon";
@@ -8,7 +6,7 @@ const ICON = "/eight-section/icon";
 const CHIPS = [
   {
     label: "AI Native Learning",
-    icon: `${ICON}/two/ai-first-business-education.png`,
+    icon: `${ICON}/one/ai-native-learning.png`,
     w: 23,
     h: 19,
     gradient: "bg-gradient-to-r from-[#1c3f78] to-[#2a8ba2]",
@@ -31,11 +29,11 @@ const CHIPS = [
 
 // 2 rows × 3 cols. Colour pattern matches the reference: middle column white,
 // outer columns alternate blue/green between the two rows.
-const FEATURES = [
+const CARDS = [
   {
     title: "Master AI Tools Used By Industry",
     body: "Gain hands-on experience with tools like Claude, Perplexity, Canva AI, Lovable, Bolt, v0, PostHog, and GA4 to solve real business challenges.",
-    icon: `${ICON}/two/ai-first-business-education.png`,
+    icon: `${ICON}/two/industry-relevant-learning.png`,
     w: 23,
     h: 19,
     variant: "blue",
@@ -43,7 +41,7 @@ const FEATURES = [
   {
     title: "Industry-Integrated Learning & Exposure",
     body: "Engage in live projects, gain real-world experience, interact with industry professionals, and develop job-ready skills through experiential learning.",
-    icon: `${ICON}/two/industry-relevant-learning.png`,
+    icon: `${ICON}/two/ai-first-business-education.png`,
     w: 24,
     h: 28,
     variant: "white",
@@ -84,56 +82,21 @@ const FEATURES = [
 
 export default function WhyAtlasMba() {
   return (
-    <section className="bg-[#081f3d] text-white">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-        {/* PART 1 — featured hero banner */}
-        <div className="group overflow-hidden rounded-3xl border border-white/10 shadow-2xl shadow-black/40">
-          <div className="grid lg:grid-cols-[3fr_5fr]">
-            {/* Left — featured image */}
-            <div className="relative aspect-[418/344] w-full overflow-hidden lg:aspect-auto lg:h-full">
-              <Image
-                src="/eight-section/poster/indu-maam-with-peyush-bansal.png"
-                alt="ATLAS leadership in conversation with Peyush Bansal"
-                fill
-                sizes="(max-width: 1024px) 100vw, 480px"
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-              />
-            </div>
-
-            {/* Right — gradient CTA content */}
-            <div className="bg-gradient-to-br from-[#142c78] via-[#0a82a0] to-[#22787a] p-8 sm:p-10">
-              <p className="text-[13px] text-white/80 sm:text-sm">Why Say Yes to</p>
-              <h2 className="mt-2 text-2xl font-bold leading-tight tracking-tight sm:text-3xl lg:text-[2rem]">
-                ATLAS Online MBA
-              </h2>
-              <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/75">
-                Designed for real-world relevance, the ATLAS Online MBA blends
-                AI-first learning with global business insight to help you lead
-                with confidence in a rapidly evolving world.
-              </p>
-
-              <div className="mt-6 flex flex-wrap gap-3">
-                {CHIPS.map((c) => (
-                  <FeatureChip key={c.label} {...c} />
-                ))}
-              </div>
-
-              <div className="mt-7">
-                <PrimaryButton href="#apply" withArrow>
-                  Apply Now
-                </PrimaryButton>
-              </div>
-            </div>
-          </div>
+    <ProgramsHighlightSection
+      image="/eight-section/poster/indu-maam-with-peyush-bansal.png"
+      imageAlt="ATLAS leadership in conversation with Peyush Bansal"
+      eyebrow="Why Say Yes to"
+      heading="ATLAS Online MBA"
+      description="Designed for real-world relevance, the ATLAS Online MBA blends AI-first learning with global business insight to help you lead with confidence in a rapidly evolving world."
+      chips={CHIPS}
+      cards={CARDS}
+      cta={
+        <div className="mt-7">
+          <PrimaryButton href="#apply" withArrow>
+            Apply Now
+          </PrimaryButton>
         </div>
-
-        {/* PART 2 — feature grid */}
-        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:mt-7 lg:grid-cols-3">
-          {FEATURES.map((f) => (
-            <FeatureCard key={f.title} {...f} />
-          ))}
-        </div>
-      </div>
-    </section>
+      }
+    />
   );
 }

@@ -1,15 +1,13 @@
-import Image from "next/image";
 import Link from "next/link";
-import FeatureChip from "./ui/FeatureChip";
-import FeatureCard from "./ui/FeatureCard";
+import ProgramsHighlightSection from "./shared/ProgramsHighlightSection";
 import { ArrowRight } from "./ui/icons";
 
 const ICON = "/eight-section/icon";
 
-const BADGES = [
+const CHIPS = [
   {
     label: "AI Native Learning",
-    icon: `${ICON}/two/ai-first-business-education.png`,
+    icon: `${ICON}/one/ai-native-learning.png`,
     w: 23,
     h: 19,
     gradient: "bg-gradient-to-r from-[#1c3f78] to-[#2a8ba2]",
@@ -30,13 +28,16 @@ const BADGES = [
   },
 ];
 
-const FEATURES = [
+// Colour pattern preserves the previous `i % 3 === 1 ? "white" : "blue"`:
+// blue, white, blue, blue, white, blue.
+const CARDS = [
   {
     title: "Industry-Relevant Learning",
     body: "Contemporary case studies, masterclasses, industry interactions, global perspectives and practical business applications that connect directly to career growth.",
     icon: `${ICON}/two/industry-relevant-learning.png`,
     w: 24,
     h: 28,
+    variant: "blue",
   },
   {
     title: "AI-First Business Education",
@@ -44,6 +45,7 @@ const FEATURES = [
     icon: `${ICON}/two/ai-first-business-education.png`,
     w: 23,
     h: 19,
+    variant: "white",
   },
   {
     title: "Build With Industry",
@@ -51,6 +53,7 @@ const FEATURES = [
     icon: `${ICON}/two/build-with-industry.png`,
     w: 33,
     h: 33,
+    variant: "blue",
   },
   {
     title: "A New Way to Study Business Online",
@@ -58,6 +61,7 @@ const FEATURES = [
     icon: `${ICON}/two/a-new-way-to-study-business-online.png`,
     w: 23,
     h: 29,
+    variant: "blue",
   },
   {
     title: "Skills for Careers of the Future",
@@ -65,6 +69,7 @@ const FEATURES = [
     icon: `${ICON}/two/skills-for-careers-of-the-future.png`,
     w: 33,
     h: 25,
+    variant: "white",
   },
   {
     title: "ATLAS SkillTech University Alumni Status",
@@ -72,62 +77,34 @@ const FEATURES = [
     icon: `${ICON}/two/atlas-skillTechuniversity-alumni-status.png`,
     w: 27,
     h: 35,
+    variant: "blue",
   },
 ];
 
 export default function OnlinePrograms() {
   return (
-    <section className="bg-[#081f3d] text-white">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-        {/* PART 1 — hero promotional card */}
-        <div className="group overflow-hidden rounded-3xl border border-white/10 shadow-2xl shadow-black/40">
-          <div className="grid lg:grid-cols-[3fr_5fr]">
-            {/* Image */}
-            <div className="relative aspect-[418/344] w-full overflow-hidden lg:aspect-auto lg:h-full">
-              <Image
-                src="/eight-section/poster/indu-maam-with-peyush-bansal.png"
-                alt="ATLAS leadership in conversation with Peyush Bansal"
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 480px"
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-              />
-            </div>
-
-            {/* Content */}
-            <div className="bg-gradient-to-br from-[#142c78] via-[#0a82a0] to-[#22787a] p-8 sm:p-10">
-              <p className="text-[13px] text-white/80 sm:text-sm">
-                Where Business Education Meets the Age of AI
-              </p>
-              <h2 className="mt-2 text-2xl font-bold leading-tight tracking-tight sm:text-3xl lg:text-[2rem]">
-                Online Management Programs Built
-                <br className="hidden sm:block" /> for How Businesses Work Today
-              </h2>
-
-              <div className="mt-6 flex flex-wrap gap-3">
-                {BADGES.map((b) => (
-                  <FeatureChip key={b.label} {...b} />
-                ))}
-              </div>
-
-              <Link
-                href="#apply"
-                className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-atlas-lime px-7 py-3 text-base font-bold text-[#0a2348] transition-colors duration-200 hover:bg-white sm:w-auto"
-              >
-                Apply Now
-                <ArrowRight />
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* PART 2 — feature grid */}
-        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:mt-7 lg:grid-cols-3">
-          {FEATURES.map((f, i) => (
-            <FeatureCard key={f.title} {...f} variant={i % 3 === 1 ? "white" : "blue"} />
-          ))}
-        </div>
-      </div>
-    </section>
+    <ProgramsHighlightSection
+      image="/eight-section/poster/indu-maam-with-peyush-bansal.png"
+      imageAlt="ATLAS leadership in conversation with Peyush Bansal"
+      priority
+      eyebrow="Where Business Education Meets the Age of AI"
+      heading={
+        <>
+          Online Management Programs Built
+          <br className="hidden sm:block" /> for How Businesses Work Today
+        </>
+      }
+      chips={CHIPS}
+      cards={CARDS}
+      cta={
+        <Link
+          href="#apply"
+          className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-atlas-lime px-7 py-3 text-base font-bold text-[#0a2348] transition-colors duration-200 hover:bg-white sm:w-auto"
+        >
+          Apply Now
+          <ArrowRight />
+        </Link>
+      }
+    />
   );
 }
