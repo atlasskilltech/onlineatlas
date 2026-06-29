@@ -33,26 +33,44 @@ const CHALLENGES = [
 function ChallengeCard({ item }) {
   return (
     <div className="flex h-full flex-col">
-      <div
-        className={`flex aspect-[16/10] items-center justify-center rounded-2xl p-5 shadow-xl shadow-black/20 ${
-          item.logo ? "bg-white" : "bg-[#3a4d65]"
-        }`}
-      >
-        {item.logo ? (
-          <Image
-            src={item.logo.src}
-            alt={item.label}
-            width={item.logo.w}
-            height={item.logo.h}
-            loading="lazy"
-            className="max-h-14 w-auto max-w-[82%] object-contain"
-          />
-        ) : (
-          <p className="text-center text-xs font-medium leading-snug text-white/90 sm:text-[13px]">
-            {item.desc}
-          </p>
-        )}
+      {/* Only this box flips on hover (hover-capable devices only); the label
+          below stays static. Same aspect ratio / radius / shadow as before.
+          The OUTER wrapper is the stable hover target (it never transforms), so
+          the whole card flips smoothly from any edge — no dead zones. */}
+      <div className="group [perspective:1000px]">
+        <div className="relative aspect-[16/10] transition-transform duration-[600ms] ease-in-out [transform-style:preserve-3d] [@media(hover:hover)]:group-hover:[transform:rotateY(180deg)]">
+          {/* FRONT — unchanged card */}
+          <div
+            className={`pointer-events-none absolute inset-0 flex items-center justify-center rounded-2xl p-5 shadow-xl shadow-black/20 [backface-visibility:hidden] ${
+              item.logo ? "bg-white" : "bg-[#3a4d65]"
+            }`}
+          >
+            {item.logo ? (
+              <Image
+                src={item.logo.src}
+                alt={item.label}
+                width={item.logo.w}
+                height={item.logo.h}
+                loading="lazy"
+                className="max-h-14 w-auto max-w-[82%] object-contain"
+              />
+            ) : (
+              <p className="text-center text-xs font-medium leading-snug text-white/90 sm:text-[13px]">
+                {item.desc}
+              </p>
+            )}
+          </div>
+
+          {/* BACK — dummy brief */}
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-2xl bg-[#3a4d65] p-5 shadow-xl shadow-black/20 [backface-visibility:hidden] [transform:rotateY(180deg)]">
+            <p className="text-center text-xs font-medium leading-snug text-white sm:text-[13px]">
+              Develop innovative, implementable solutions to real-life business
+              challenges faced by industry leaders.
+            </p>
+          </div>
+        </div>
       </div>
+
       <p className="mt-3 text-center text-sm font-bold text-white">
         {item.label}
       </p>
