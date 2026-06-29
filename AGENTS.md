@@ -273,7 +273,61 @@ now on programs start making thirteen section design reference from this folder 
 
 
 
+ for thirteen section of programs page "WhyOnlineMba"  
+ in the main index page TheDifference.js > app\components\ComparisonSection.js is already created  just
+ u have make usable component of it just take content color from "public\reference-design\9-ninth-section.png"  reference image and take assets from
+ "public"
 
 
 
 
+
+
+for thirteen section of programs page "WhyOnlineMba"  
+
+ in the main index page TheDifference.js > app\components\ComparisonSection.js is already created  just
+
+ u have make usable component of it just take content color from "public\reference-design\9-ninth-section.png"  reference image and take assets from
+
+ "public"  
+
+ real content from this "public\reference-design\programs\13.png"
+
+ usable component from this "public\reference-design\9-ninth-section.png"
+
+
+
+
+
+
+
+
+
+
+
+
+
+now on programs start making fourtheen section design reference from this folder "public\reference-design\programs\14.png" and take assets from this "public/" and "public\twenty-four" folder also dont make new desing stick with the main page desing and also there is many chance to use usable component from main page so always try to use usable component with out any issue on tha main page okay and make responsive for all device perfectly
+
+
+
+
+
+
+
+now on programs start making fivtheen section design reference from this folder "public\reference-design\programs\15.png" and take assets from this "public/"  folder also dont make new desing stick with the main page desing and also there is many chance to use usable component from main page so always try to use usable component with out any issue on tha main page okay and make responsive for all device perfectly
+
+
+
+
+
+now on programs start making sixtheen section design reference from this folder "public\reference-design\programs\16.png" and take assets from this "public/" and "public\twenty-five-section"  folder also dont make new desing stick with the main page desing and also there is many chance to use usable component from main page so always try to use usable component with out any issue on tha main page okay and make responsive for all device perfectly
+
+
+
+
+
+
+
+
+now on programs start making seventheen section design reference from this folder "public\reference-design\programs\17.png" and take assets from this "public/"   folder also dont make new desing stick with the main page desing and also there is many chance to use usable component from main page so always try to use usable component with out any issue on tha main page okay and make responsive for all device perfectly

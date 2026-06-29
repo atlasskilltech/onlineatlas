@@ -21,6 +21,8 @@ export default function ComparisonSection({
   descriptionClassName = "mt-4 text-sm leading-relaxed text-white/70 sm:text-[15px]",
   rows,
   cta,
+  oldIconSrc = `${ICON}/wrong.png`,
+  rightIconSrc = `${ICON}/right.png`,
   collapsible = false,
   defaultOpenIndex = 0,
   sectionClassName = "bg-[#f6f7ee]",
@@ -72,7 +74,7 @@ export default function ComparisonSection({
                           <span className="flex-1">
                             <span className="flex items-center gap-3">
                               <Image
-                                src={`${ICON}/wrong.png`}
+                                src={oldIconSrc}
                                 alt=""
                                 aria-hidden="true"
                                 width={22}
@@ -88,7 +90,7 @@ export default function ComparisonSection({
                             </span>
                             <span className="mt-3 flex items-center gap-3">
                               <Image
-                                src={`${ICON}/right.png`}
+                                src={rightIconSrc}
                                 alt=""
                                 aria-hidden="true"
                                 width={22}
@@ -146,7 +148,7 @@ export default function ComparisonSection({
                       <>
                         <div className="flex items-center gap-3">
                           <Image
-                            src={`${ICON}/wrong.png`}
+                            src={oldIconSrc}
                             alt="Not at ATLAS"
                             width={22}
                             height={22}
@@ -161,7 +163,7 @@ export default function ComparisonSection({
                         </div>
                         <div className="mt-3 flex items-start gap-3">
                           <Image
-                            src={`${ICON}/right.png`}
+                            src={rightIconSrc}
                             alt="At ATLAS"
                             width={22}
                             height={23}

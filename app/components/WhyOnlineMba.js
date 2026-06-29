@@ -16,6 +16,7 @@ export default function WhyOnlineMba() {
       description="We've reimagined online business education. Here's how we're different from typical programs."
       descriptionClassName="mt-4 text-sm leading-relaxed text-white/70 sm:text-[15px]"
       rows={DIFFERENCE_ROWS}
+      oldIconSrc="/ninth-section/icon/wrong-red.png"
       sectionClassName="bg-[#081f3d] text-white"
       innerClassName="mx-auto max-w-3xl"
       cardClassName="mt-8 rounded-3xl bg-[#f6f7ee] p-6 shadow-2xl shadow-black/30 sm:p-8 lg:mt-10 lg:p-9"

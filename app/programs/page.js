@@ -13,6 +13,10 @@ import AdmissionGateway from "../components/AdmissionGateway";
 import Curriculum from "../components/Curriculum";
 import LmsApp from "../components/LmsApp";
 import WhyOnlineMba from "../components/WhyOnlineMba";
+import IndustryConversations from "../components/IndustryConversations";
+import InvestmentFuture from "../components/InvestmentFuture";
+import StudentVoices from "../components/StudentVoices";
+import ProgramFaq from "../components/ProgramFaq";
 import { SITE_URL, BRAND, pageMetadata } from "../seo";
 
 export const metadata = {
@@ -101,6 +105,10 @@ export default function ProgramsPage() {
       <Curriculum />
       <LmsApp />
       <WhyOnlineMba />
+      <IndustryConversations />
+      <InvestmentFuture />
+      <StudentVoices />
+      <ProgramFaq />
     </main>
   );
 }
