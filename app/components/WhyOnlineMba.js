@@ -18,12 +18,14 @@ export default function WhyOnlineMba() {
       rows={DIFFERENCE_ROWS}
       oldIconSrc="/ninth-section/icon/wrong-red.png"
       sectionClassName="bg-[#081f3d] text-white"
-      innerClassName="mx-auto max-w-3xl"
+      innerClassName=""
       cardClassName="mt-8 rounded-3xl bg-[#f6f7ee] p-6 shadow-2xl shadow-black/30 sm:p-8 lg:mt-10 lg:p-9"
       dividerClassName="divide-black/10"
       oldClassName="text-gray-400"
       titleClassName="text-atlas-navy"
       descClassName="text-atlas-navy/60"
+      collapsible
+      defaultOpenIndex={0}
       cta={
         <PrimaryButton href="#apply" variant="navy" withArrow className="mt-7 w-full">
           Apply Now
