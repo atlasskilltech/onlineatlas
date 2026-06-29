@@ -2,6 +2,7 @@ import { Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import BackToTopButton from "./components/BackToTopButton";
 import { SITE_URL, BRAND, SITE_NAME, THEME_COLOR } from "./seo";
 
 const inter = Inter({
@@ -70,6 +71,7 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
         <Footer />
+        <BackToTopButton />
       </body>
     </html>
   );
