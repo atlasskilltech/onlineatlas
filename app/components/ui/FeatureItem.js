@@ -5,7 +5,7 @@ export default function FeatureItem({ children, className = "" }) {
   return (
     <li className={`flex items-start gap-3 ${className}`}>
       <Image
-        src="/twelth-section/icon/right.png"
+        src="/ui-assets/icons-image/green/right.png"
         alt=""
         aria-hidden="true"
         width={26}

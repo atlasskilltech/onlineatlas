@@ -95,7 +95,7 @@ export default function Home() {
             alt: "McKinsey & Company",
           },
         }}
-        checkSrc="/twelth-section/icon/right.png"
+        checkSrc="/ui-assets/icons-image/green/right.png"
         starSrc="/twelth-section/shape/vector.png"
       />
       <IndustryCurriculum />
