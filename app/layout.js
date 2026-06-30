@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import BackToTopButton from "./components/BackToTopButton";
+import SmoothScroll from "./components/SmoothScroll";
 import { SITE_URL, BRAND, SITE_NAME, THEME_COLOR } from "./seo";
 
 const inter = Inter({
@@ -68,6 +69,7 @@ export default function RootLayout({ children }) {
       className={`${inter.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <SmoothScroll />
         <Header />
         {children}
         <Footer />
