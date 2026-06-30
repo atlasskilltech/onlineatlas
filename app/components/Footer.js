@@ -46,7 +46,7 @@ export default function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" aria-label="Atlas Online — home" className="inline-block">
               <Image
-                src="/logo/atlas-online-logo-footer.svg"
+                src="ui-assets/logo/main-logos/atlas-online-logo.svg"
                 alt="ATLAS SkillTech Online — School of Management"
                 width={353}
                 height={117}

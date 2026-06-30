@@ -2,12 +2,12 @@
 // homepage IndustryPartners section and the Programs "Learn from Leaders" section.
 export const PARTNER_LOGO_ROWS = [
   {
-    src: "/fourth-section/brand-logos/first-row-trim.png",
+    src: "/ui-assets/logo/brand-logos/2/first-row-trim.png",
     width: 2481,
     height: 120,
   },
   {
-    src: "/fourth-section/brand-logos/second-row-trim.png",
+    src: "/ui-assets/logo/brand-logos/2/second-row-trim.png",
     width: 2241,
     height: 120,
   },

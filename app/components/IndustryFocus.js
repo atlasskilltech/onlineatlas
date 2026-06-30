@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const FEATURES = [
   {
-    icon: { src: "/third-section/icon/ai.svg", width: 42, height: 35 },
+    icon: { src: "/ui-assets/icons-image/green/ai.svg", width: 42, height: 35 },
     line1: "Learn",
     line2: (
       <>
@@ -12,13 +12,13 @@ const FEATURES = [
     desc: "Build AI fluency and learn to apply emerging technologies across business, strategy, marketing & decision-making",
   },
   {
-    icon: { src: "/third-section/icon/light.svg", width: 52, height: 52 },
+    icon: { src: "/ui-assets/icons-image/green/light.svg", width: 52, height: 52 },
     line1: "Experiential Industry",
     line2: "First Approach",
     desc: "Learn from practitioners, solve real business challenges & gain insights from leaders shaping today's industries",
   },
   {
-    icon: { src: "/third-section/icon/bag.svg", width: 45, height: 45 },
+    icon: { src: "/ui-assets/icons-image/green/bag.svg", width: 45, height: 45 },
     line1: "Career",
     line2: "Acceleration",
     desc: "Develop the skills, portfolio, and professional network needed to grow, transition, & lead in the future of work",
@@ -66,7 +66,7 @@ export default function IndustryFocus() {
                 preload="auto"
               >
                 <source
-                  src="/third-section/video/atlas-tour.mp4"
+                  src="ui-assets/video/youtube-video/atlas-tour.mp4"
                   type="video/mp4"
                 />
               </video>

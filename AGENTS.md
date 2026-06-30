@@ -344,8 +344,14 @@ now on programs start making seventheen section design reference from this folde
 
 
 
-
-
+in all this component 
 StudentSuccess.js
 ProgramsShowcase.js
 HrTestimonials.js
+AtlasNews.js
+CaseChallenges.js
+IndustryConversations.js
+StudentVoices.js
+
+wherever caraousel is used there some little little issue so first find the caoursel issue and the solve one by one but
+my suggestion u r not using swiper js this make carousel perfect fine without any issue so dont change any design layout color content dont change anything u have just solve the issue wheather solve by yr own or using swiper js and also hath se swiper slide nai hora hai toh user slide kare woh bhi ho  ekdum perfect banao and insure about mobile reponsive dont brk anything

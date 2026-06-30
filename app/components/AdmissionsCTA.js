@@ -11,14 +11,14 @@ const DEFAULT_FEATURES = [
 // usage keeps working with no props.
 const DEFAULT_PROFILE = {
   image: {
-    src: "/fiveth-section/person/nikhil-kamath/1.png",
+    src: "/admissionscta/person/nikhil-kamath/1.png",
     alt: "Nikhil Kamath speaking at the ATLAS Convocation",
   },
   name: "Nikhil Kamath",
   title: "Founder & CEO",
   convocation: "@ ATLAS Convocation",
   logo: {
-    src: "/fiveth-section/logo/zerodha.png",
+    src: "/ui-assets/logo/brand-logos/1/zerodha.png",
     width: 103,
     height: 52,
     alt: "Zerodha",
@@ -93,8 +93,8 @@ export default function AdmissionsCTA({
   features = DEFAULT_FEATURES,
   heading = "Admissions Open for 2026",
   paragraph = "Join a new generation of business professionals equipped to navigate change, leverage AI, and create impact.",
-  checkSrc = "/fiveth-section/icon/right.png",
-  starSrc = "/fiveth-section/shape/vector.png",
+  checkSrc = "/ui-assets/icons-image/green/right.png",
+  starSrc = "/ui-assets/shape/vector.png",
   applyHref = "#apply",
   prospectusHref = "#prospectus",
 }) {

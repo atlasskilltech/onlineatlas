@@ -3,7 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 
-const ICON = "/ninth-section/icon";
+const ICON = "/ui-assets/icons-image/green";
+const ICONWHITE = "/ui-assets/icons-image/white";
 
 // One reusable "traditional vs ATLAS" comparison section.
 //  - `collapsible` → homepage accordion (one open at a time, chevrons).
@@ -21,7 +22,7 @@ export default function ComparisonSection({
   descriptionClassName = "mt-4 text-sm leading-relaxed text-white/70 sm:text-[15px]",
   rows,
   cta,
-  oldIconSrc = `${ICON}/wrong.png`,
+  oldIconSrc = `${ICONWHITE}/wrong.png`,
   rightIconSrc = `${ICON}/right.png`,
   collapsible = false,
   defaultOpenIndex = 0,

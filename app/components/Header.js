@@ -155,7 +155,7 @@ export default function Header() {
             onClick={() => setOpen(false)}
           >
             <Image
-              src="/logo/atlas-online-logo.svg"
+              src="ui-assets/logo/main-logos/atlas-online-logo.svg"
               alt="Atlas Online"
               width={326}
               height={92}

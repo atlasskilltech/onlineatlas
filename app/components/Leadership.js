@@ -7,7 +7,7 @@ import { EffectCoverflow, Autoplay, Keyboard, A11y } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 
-const BASE = "/fourth-section/leaders";
+const BASE = "/industrypartners/leaders";
 
 // Advisory team is shown active by default (matches the reference). Designations
 // for the five reference-visible leaders are taken verbatim from the design.

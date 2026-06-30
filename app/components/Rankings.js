@@ -5,7 +5,7 @@ const ITEMS = [
     big: "#5",
     lines: ["Nationally", "(Private B-Schools)"],
     logo: {
-      src: "/second-section/brand-logos/times-now.png",
+      src: "/ui-assets/logo/brand-logos/1/times-now.png",
       alt: "Times Now",
       width: 298,
       height: 36,
@@ -16,7 +16,7 @@ const ITEMS = [
     heading: ["Prestigious", "Education Brand"],
     lines: ["Two time in a row", "2024-2025"],
     logo: {
-      src: "/second-section/brand-logos/makrsmen-daily.png",
+      src: "/ui-assets/logo/brand-logos/1/makrsmen-daily.png",
       alt: "Marksmen Daily",
       width: 225,
       height: 63,
@@ -27,7 +27,7 @@ const ITEMS = [
     big: "#1",
     lines: ["Top Emerging", "Management University"],
     logo: {
-      src: "/second-section/brand-logos/the-times-of-india.png",
+      src: "/ui-assets/logo/brand-logos/1/the-times-of-india.png",
       alt: "Times Education Icons — The Times of India",
       width: 249,
       height: 79,
@@ -38,7 +38,7 @@ const ITEMS = [
     big: "#5",
     lines: ["B-School", "(West Zone)"],
     logo: {
-      src: "/second-section/brand-logos/bw-bussinessword.png",
+      src: "/ui-assets/logo/brand-logos/1/bw-bussinessword.png",
       alt: "BW Businessworld",
       width: 243,
       height: 34,

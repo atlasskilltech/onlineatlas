@@ -7,7 +7,7 @@ import { Grid, Keyboard, A11y } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/grid";
 
-const BASE = "/sixth-section/students";
+const BASE = "/studentsuccess/students";
 
 // Full literal gradient strings so Tailwind's scanner keeps them in the build.
 const GRADIENTS = {
@@ -176,7 +176,7 @@ export default function StudentSuccess() {
               className="transition-transform duration-200 hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-atlas-lime"
             >
               <Image
-                src="/sixth-section/icon/left-arrow.png"
+                src="/ui-assets/icons-image/yellow/left-arrow.png"
                 alt=""
                 aria-hidden="true"
                 width={33}
@@ -191,7 +191,7 @@ export default function StudentSuccess() {
               className="transition-transform duration-200 hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-atlas-lime"
             >
               <Image
-                src="/sixth-section/icon/right-arrow.png"
+                src="/ui-assets/icons-image/yellow/right-arrow.png"
                 alt=""
                 aria-hidden="true"
                 width={33}

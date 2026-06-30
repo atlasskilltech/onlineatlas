@@ -2,7 +2,7 @@ import Image from "next/image";
 import SectionHeading from "./ui/SectionHeading";
 import { PrimaryButton } from "./ui/Button";
 
-const CHECK_ICON = "/ninth-section/icon/right.png";
+const CHECK_ICON = "/ui-assets/icons-image/green/right.png";
 
 const SEMESTERS = [
   { label: "Semester 1", amount: "₹62,500" },

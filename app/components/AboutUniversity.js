@@ -66,7 +66,7 @@ export default function AboutUniversity() {
               {FEATURES.map((f) => (
                 <li key={f.title} className="flex gap-3">
                   <Image
-                    src="/seventh-section/icon/right.png"
+                    src="/ui-assets/icons-image/green/right.png"
                     alt=""
                     aria-hidden="true"
                     width={26}
@@ -100,7 +100,7 @@ export default function AboutUniversity() {
 
             <div className="relative aspect-[602/258] w-full overflow-hidden rounded-2xl border border-white/10 shadow-lg shadow-black/30">
               <Image
-                src="/seventh-section/university-view/1.png"
+                src="/aboutuniversity/university-view/1.png"
                 alt="Aerial view of the ATLAS SkillTech University campus in Mumbai"
                 fill
                 sizes="(max-width: 1024px) 100vw, 600px"

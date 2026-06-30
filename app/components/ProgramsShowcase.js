@@ -219,7 +219,7 @@ function ProgramCard({ program }) {
           {program.features.map((feature) => (
             <li key={feature} className="flex items-center gap-2.5">
               <Image
-                src="/tenth-section/icon/right.png"
+                src="/ui-assets/icons-image/yellow/right.png"
                 alt=""
                 aria-hidden="true"
                 width={14}
@@ -261,7 +261,7 @@ export default function ProgramsShowcase() {
           navy into the reference's muted olive tone. */}
       <div className="pointer-events-none absolute right-0 top-6 hidden translate-x-1/4 sm:block">
         <Image
-          src="/tenth-section/shape/vector.png"
+          src="/ui-assets/shape/yellow-star.png"
           alt=""
           aria-hidden="true"
           width={173}
@@ -291,7 +291,7 @@ export default function ProgramsShowcase() {
         {/* Hero image */}
         <div className="relative mt-8 aspect-[1251/482] w-full overflow-hidden rounded-2xl shadow-2xl shadow-black/30 lg:mt-10">
           <Image
-            src="/tenth-section/poster/1.png"
+            src="/david-wittenberg-while-teaching-in-classroom/david-wittenberg.png"
             alt="A professor teaching ATLAS students in a modern classroom"
             fill
             sizes="(max-width: 1280px) 100vw, 1216px"

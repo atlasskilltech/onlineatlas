@@ -46,7 +46,7 @@ const homeJsonLd = {
       name: BRAND,
       alternateName: "ATLAS Online",
       url: SITE_URL,
-      logo: `${SITE_URL}/logo/atlas-online-logo.svg`,
+      logo: `${SITE_URL}/ui-assets/logo/main-logos/atlas-online-logo.svg`,
       description:
         "ATLAS SkillTech University offers 100% online, AI-native MBA and BBA programs combining world-class faculty, industry mentors, and real-world AI application.",
     },
