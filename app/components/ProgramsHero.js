@@ -7,20 +7,24 @@ import EnquiryForm from "./EnquiryForm";
 
 const FEATURES = [
   <>
-    Build{" "}
+    Mode{" "}
     <strong className="font-bold text-white">
-      AI-powered products, workflows &amp; business solutions
+     100% Online
     </strong>
   </>,
   <>
-    Graduate with your{" "}
+    Duration{" "}
     <strong className="font-bold text-white">
-      Builder Score &amp; Human Edge Index
+    2 Years
     </strong>
   </>,
   <>
-    Flexible learning designed for{" "}
-    <strong className="font-bold text-white">working professionals</strong>
+    Immersion{" "}
+    <strong className="font-bold text-white">Optional, on-campus</strong>
+  </>,
+   <>
+    Intake{" "}
+    <strong className="font-bold text-white">Jan 2027</strong>
   </>,
 ];
 
@@ -83,7 +87,7 @@ export default function ProgramsHero() {
             {/* Accreditation */}
             <div className="mt-8 border-t border-white/15 pt-6">
               <div className="flex flex-wrap items-center gap-x-5 gap-y-4">
-                {ACCREDITATIONS.map((a) => (
+                {/* {ACCREDITATIONS.map((a) => (
                   <div key={a.label} className="flex items-center gap-2.5">
                     <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white p-1.5 shadow-lg shadow-black/10">
                       <Image
@@ -99,7 +103,13 @@ export default function ProgramsHero() {
                       {a.label}
                     </span>
                   </div>
-                ))}
+                ))} */}
+
+                <p className="mt-0 text-sm font-semibold text-white sm:text-xl">
+                <span className="text-atlas-lime">
+               UGC Approved & NAAC 
+              </span>  Accredited Online MBA Program
+            </p>
               </div>
             </div>
           </div>
