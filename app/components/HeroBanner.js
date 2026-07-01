@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Badge from "./ui/Badge";
 import HeroBackground from "./ui/HeroBackground";
 import { PrimaryButton, SecondaryButton } from "./ui/Button";
@@ -10,7 +11,7 @@ import { ArrowRight } from "./ui/icons";
 const PROGRAMS = {
   mba: {
     tab: "Online MBA",
-    title: ["Online MBA", "in AI-Native Management"],
+    title: ["Online MBA", "AI-Native Management"],
     specs: [
       { label: "Duration", value: "2 Years" },
       { label: "Mode", value: "100% Online" },
@@ -23,7 +24,7 @@ const PROGRAMS = {
   },
   bba: {
     tab: "Online BBA",
-    title: ["Online BBA", "in AI-Native Business"],
+    title: ["Online BBA", "AI-Native Management"],
     specs: [
       { label: "Duration", value: "3 Years" },
       { label: "Mode", value: "100% Online" },
@@ -35,19 +36,6 @@ const PROGRAMS = {
     emi: "₹7,500",
   },
 };
-
-function Sparkle({ className = "" }) {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      className={className}
-      fill="currentColor"
-    >
-      <path d="M12 0c.5 6.2 3.3 9 9.5 9.5C15.3 10 12.5 12.8 12 19c-.5-6.2-3.3-9-9.5-9.5C8.7 9 11.5 6.2 12 0Z" />
-    </svg>
-  );
-}
 
 function ProgramCard() {
   const [active, setActive] = useState("mba");
@@ -144,9 +132,16 @@ export default function HeroBanner() {
               Online Business Education
               <br />
               for an{" "}
-              <span className="relative inline-block text-atlas-lime">
-                <Sparkle className="absolute -top-1 -left-3 h-4 w-4 text-atlas-lime sm:-top-2 sm:-left-4 sm:h-5 sm:w-5" />
-                Ai-Native World
+              <span className="text-atlas-lime">
+                A
+                <Image
+                  src="/ui-assets/icons-image/yellow/i.png"
+                  alt="i"
+                  width={14}
+                  height={51}
+                  className="inline-block h-[0.92em] w-auto align-baseline"
+                />
+                -Native World
               </span>
             </h1>
 

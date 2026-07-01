@@ -71,7 +71,7 @@ export default function Home() {
       <Rankings />
       <IndustryFocus />
       <IndustryPartners />
-      <Leadership />
+      {/* <Leadership /> */}
       <AdmissionsCTA />
       <StudentSuccess />
       <AboutUniversity />

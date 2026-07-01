@@ -53,12 +53,12 @@ function StudentCard({ s }) {
 
       {/* Copy block on the gradient side */}
       <div className="relative z-10 flex h-full max-w-[60%] flex-col p-4 sm:p-5">
-        <h3 className="text-lg font-bold leading-[1.08] text-white [text-shadow:0_2px_10px_rgba(0,0,0,0.3)] sm:text-xl">
+        <h3 className="text-xl font-bold leading-[1.08] text-white [text-shadow:0_2px_10px_rgba(0,0,0,0.3)] sm:text-xl">
           {s.first}
           <br />
           {s.last}
         </h3>
-        <p className="mt-2 text-xs leading-snug text-white/85 sm:text-[13px]">
+        <p className="mt-2 text-sm leading-snug text-white/85 sm:text-[13px]">
           {s.title}
         </p>
         <div className="mt-auto pt-3">
@@ -68,7 +68,7 @@ function StudentCard({ s }) {
             width={s.logoW}
             height={s.logoH}
             loading="lazy"
-            className="h-6 w-auto object-contain object-left sm:h-7"
+            className="h-8 w-auto object-contain object-left sm:h-7"
           />
         </div>
       </div>

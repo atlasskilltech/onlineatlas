@@ -97,7 +97,7 @@ export default function ProgramsPage() {
       <WhyAtlasMba />
       <LeadersPlaybook />
       <CaseChallenges />
-      <CareerPaths />
+      {/* <CareerPaths /> */}
       <CareerOutcomes />
       <IndustryLeaders />
       <CurriculumSplit />

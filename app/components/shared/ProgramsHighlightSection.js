@@ -1,6 +1,7 @@
 import Image from "next/image";
 import FeatureChip from "../ui/FeatureChip";
 import FeatureCard from "../ui/FeatureCard";
+import FeatureCardsSlider from "../FeatureCardsSlider";
 
 // Shared layout for the Homepage "OnlinePrograms" and Programs "WhyAtlasMba"
 // sections: a hero promo card (image + gradient content + chips + CTA) above a
@@ -23,6 +24,7 @@ export default function ProgramsHighlightSection({
   chips,
   cta,
   cards,
+  mobileSlider = false,
 }) {
   return (
     <section className="bg-[#081f3d] text-white">
@@ -65,12 +67,18 @@ export default function ProgramsHighlightSection({
           </div>
         </div>
 
-        {/* PART 2 — feature grid */}
-        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:mt-7 lg:grid-cols-3">
-          {cards.map((f) => (
-            <FeatureCard key={f.title} {...f} />
-          ))}
-        </div>
+        {/* PART 2 — feature grid (optionally a Swiper on mobile) */}
+        {mobileSlider ? (
+          <div className="mt-6 lg:mt-7">
+            <FeatureCardsSlider cards={cards} />
+          </div>
+        ) : (
+          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:mt-7 lg:grid-cols-3">
+            {cards.map((f) => (
+              <FeatureCard key={f.title} {...f} />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

@@ -63,7 +63,7 @@ export default function ProgramsHero() {
             <p className="mt-4 text-lg font-semibold text-white sm:text-xl">
               Built for{" "}
               <span className="text-atlas-lime">
-                leaders shaping an AI-driven future
+                leaders shaping an AI-Native  future
               </span>
             </p>
 
@@ -77,7 +77,7 @@ export default function ProgramsHero() {
               <PrimaryButton href="#apply" withArrow>
                 Apply Now
               </PrimaryButton>
-              <SecondaryButton href="#programs">Explore Programs</SecondaryButton>
+              <SecondaryButton href="#programs">Download Brochure</SecondaryButton>
             </div>
 
             {/* Accreditation */}

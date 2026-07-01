@@ -90,6 +90,7 @@ export default function WhyAtlasMba() {
       description="Designed for real-world relevance, the ATLAS Online MBA blends AI-first learning with global business insight to help you lead with confidence in a rapidly evolving world."
       chips={CHIPS}
       cards={CARDS}
+      mobileSlider
       cta={
         <div className="mt-7">
           <PrimaryButton href="#apply" withArrow>

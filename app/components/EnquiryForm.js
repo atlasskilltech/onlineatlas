@@ -13,12 +13,18 @@ const FIELDS = [
 ];
 
 export default function EnquiryForm({
-  heading = "Adapt Early or Fall Behind",
+  heading = (
+    <>
+      The Future Belongs to the{" "}
+      <span className="whitespace-nowrap">AI-Ready</span>
+    </>
+  ),
   subtitle = (
     <>
-      60% of business tasks are{" "}
+      60% of Business Tasks Are {" "}
       <span className="font-semibold text-atlas-navy">becoming AI-driven</span>,
-      stay relevant!
+      Going AI-Driven, Are you building the skills to stay ahead? 
+
     </>
   ),
 }) {

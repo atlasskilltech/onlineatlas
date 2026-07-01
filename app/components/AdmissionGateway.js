@@ -118,7 +118,7 @@ export default function AdmissionGateway() {
               break out above the top edge (kept under the 32px gap above so it
               never overlaps the eligibility cards). */}
           <Image
-            src="/twenty-one-section/person/1.png"
+            src="/twenty-one-section/person/2.png"
             alt="An ATLAS MBA applicant"
             width={360}
             height={416}

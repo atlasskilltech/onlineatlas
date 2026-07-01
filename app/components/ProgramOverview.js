@@ -16,7 +16,7 @@ export default function ProgramOverview() {
         <SectionHeading
           eyebrow="Future-Ready"
           title="AI-First MBA"
-          description="India's premier AI-first 2-year Online MBA for accomplished and aspiring leaders. At ATLAS University, education goes beyond credentials, it shapes the way you think, decide, and lead. Our Online MBA is crafted for individuals who seek clarity amidst complexity and ambition guided by purpose. Rooted in strong business fundamentals and elevated by contemporary leadership practice, the program cultivates strategic perspective, executive judgment, and the confidence to lead in dynamic, evolving environments. This is an MBA for those who value progress over convention and influence over hierarchy."
+          description="India's premier AI-native Online MBA — built for leaders who think beyond credentials. ATLAS embeds AI into the way you think, decide, and lead, pairing strong business fundamentals with AI-driven leadership practice for the modern enterprise. The result is strategic perspective, AI-powered decision-making, and the confidence to lead through complexity. For those who choose progress over convention, and influence over hierarchy."
           descriptionClassName="max-w-6xl"
         />
 

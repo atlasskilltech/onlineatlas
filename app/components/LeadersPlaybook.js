@@ -10,7 +10,7 @@ export default function LeadersPlaybook() {
     >
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         {/* PART 1 — header */}
-        <SectionHeading eyebrow="Where Leaders" title="Share Their Playbook" />
+        <SectionHeading eyebrow="Learn Directly from" title=" Leaders Shaping Industry" />
 
         {/* PART 2 — speaker cards:
             mobile = horizontal snap-scroll, tablet = 3 per row, desktop = 5 in a row. */}

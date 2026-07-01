@@ -96,6 +96,7 @@ export default function OnlinePrograms() {
       }
       chips={CHIPS}
       cards={CARDS}
+      mobileSlider
       cta={
         <Link
           href="#apply"

@@ -7,8 +7,8 @@ export default function IndustryLeaders() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         {/* PART 1 — header */}
         <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl lg:text-4xl">
-          <span className="text-atlas-lime">Learn Directly from Leaders</span>{" "}
-          <span className="text-white">Shaping your Industry</span>
+          <span className="text-atlas-lime">Strong Industry Partnerships</span>{" "}
+          <span className="text-white">Driving Success</span>
         </h2>
         <p className="mt-4 max-w-4xl text-[15px] leading-relaxed text-white/80 sm:text-base">
           Access 300+ CXO-led sessions annually featuring experts from Google,

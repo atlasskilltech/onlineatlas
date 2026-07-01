@@ -4,7 +4,7 @@
 export default function StatHighlights({ items, className = "" }) {
   return (
     <div
-      className={`grid grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-4 lg:gap-x-0 ${className}`}
+      className={`grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-4 lg:gap-x-0 ${className}`}
     >
       {items.map((item, i) => (
         <div
